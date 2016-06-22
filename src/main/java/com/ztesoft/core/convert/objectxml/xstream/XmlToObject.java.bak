@@ -1,0 +1,43 @@
+package com.ztesoft.core.convert.objectxml.xstream;
+
+import com.thoughtworks.xstream.XStream;
+import com.ztesoft.core.convert.Converter;
+
+import org.tinygroup.xmlparser.node.XmlNode;
+import org.tinygroup.xmlparser.parser.XmlStringParser;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class XmlToObject<T> implements Converter<String, List<T>> {
+    private XStream xstream;
+
+    private String rootNodeName;
+
+    public XmlToObject(Class<T> rootClass, String rootNodeName) {
+        xstream = new XStream();
+        xstream.setMode(XStream.NO_REFERENCES);
+        xstream.processAnnotations(rootClass);
+        this.rootNodeName = rootNodeName;
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<T> convert(String inputData) throws BaseAppException {
+        XmlNode root = new XmlStringParser().parse(inputData).getRoot();
+        checkRootNodeName(root);
+        List<T> list = new ArrayList<T>();
+        List<XmlNode> nodeList = root.getSubNodes();
+        for (XmlNode node : nodeList) {
+            list.add((T) xstream.fromXML(node.toString()));
+        }
+        return list;
+    }
+
+    private void checkRootNodeName(XmlNode root) throws BaseAppException {
+        if (root.getNodeName() == null
+                || !root.getNodeName().equals(rootNodeName)) {
+            throw new ConvertException("根节点名称[" + root.getRoot().getNodeName()
+                    + "]与期望的根节点名称[" + rootNodeName + "]不一致！");
+        }
+    }
+}
