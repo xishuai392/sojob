@@ -16,9 +16,9 @@ import com.ztesoft.framework.dto.AbstractDto;
  * @see com.ztesoft.web.inbound.reponse <br>
  */
 
-public class ResponBDZP extends AbstractDto {
+public class ResponseBDZP extends AbstractDto {
     private String status;
-    private ResponBDZPBody data;
+    private ResponseBDZPBody data;
     /**
      * @return the status
      */
@@ -34,13 +34,13 @@ public class ResponBDZP extends AbstractDto {
     /**
      * @return the data
      */
-    public ResponBDZPBody getData() {
+    public ResponseBDZPBody getData() {
         return data;
     }
     /**
      * @param data the data to set
      */
-    public void setData(ResponBDZPBody data) {
+    public void setData(ResponseBDZPBody data) {
         this.data = data;
     }
     

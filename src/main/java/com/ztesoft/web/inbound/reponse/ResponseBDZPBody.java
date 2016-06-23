@@ -16,7 +16,7 @@ import com.ztesoft.framework.dto.AbstractDto;
  * @see com.ztesoft.web.inbound.reponse <br>
  */
 
-public class ResponBDZPBody extends AbstractDto {
+public class ResponseBDZPBody extends AbstractDto {
 
     private String status;
     private JobInfoGroup data;

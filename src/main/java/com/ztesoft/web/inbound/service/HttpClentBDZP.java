@@ -14,12 +14,13 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import com.alibaba.druid.support.json.JSONUtils;
 import com.ztesoft.framework.exception.BaseAppException;
 import com.ztesoft.framework.util.JsonUtil;
 import com.ztesoft.web.inbound.param.QryParamBDZP;
-import com.ztesoft.web.inbound.reponse.ResponBDZP;
+import com.ztesoft.web.inbound.reponse.ResponseBDZP;
 
 /**
  * <Description> <br>
@@ -32,6 +33,7 @@ import com.ztesoft.web.inbound.reponse.ResponBDZP;
  * @see com.ztesoft.web.inbound.service <br>
  */
 
+@Component
 public class HttpClentBDZP {
     /** log4j对象 */
     private static final Logger logger = Logger.getLogger(HttpClentBDZP.class);
@@ -72,14 +74,21 @@ public class HttpClentBDZP {
         return requestConfig;
     }
 
-    public String doGet(String url) throws BaseAppException {
+    public ResponseBDZP doGet(QryParamBDZP param) throws BaseAppException {
+        String url = BASEURL + param.encodeToUrl();
+        String result = doGet(url);
+        ResponseBDZP responseBDZP = JsonUtil.toBean(result, ResponseBDZP.class);
+        return responseBDZP;
+    }
+
+    private String doGet(String url) throws BaseAppException {
         logger.info("QUERY FROM BaiduZhaoPin BEGIN，URL = " + url);
         long t01 = System.currentTimeMillis();
         HttpClient client = getHttpClient();
         HttpGet httpGet = null;
         HttpResponse httpResponse = null;
         String jsonContent = "";
-        Integer timeout = 5 * 60*60;
+        Integer timeout = 5 * 60 * 60;
         try {
             // get 方法
             httpGet = new HttpGet(url);
@@ -137,9 +146,9 @@ public class HttpClentBDZP {
         try {
             String result = client.doGet(url);
             System.out.println("result:" + result);
-            
-            //Object ooo = JSONUtils.parse(result);
-            ResponBDZP aaaa = JsonUtil.toBean(result, ResponBDZP.class);
+
+            // Object ooo = JSONUtils.parse(result);
+            ResponseBDZP aaaa = JsonUtil.toBean(result, ResponseBDZP.class);
             System.out.println(aaaa);
         }
         catch (BaseAppException e) {
