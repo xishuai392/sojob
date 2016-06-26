@@ -13,11 +13,10 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.util.EntityUtils;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
-import com.alibaba.druid.support.json.JSONUtils;
 import com.ztesoft.framework.exception.BaseAppException;
+import com.ztesoft.framework.log.ZTEsoftLogManager;
 import com.ztesoft.framework.util.JsonUtil;
 import com.ztesoft.web.inbound.param.QryParamBDZP;
 import com.ztesoft.web.inbound.reponse.ResponseBDZP;
@@ -35,8 +34,8 @@ import com.ztesoft.web.inbound.reponse.ResponseBDZP;
 
 @Component
 public class HttpClentBDZP {
-    /** log4j对象 */
-    private static final Logger logger = Logger.getLogger(HttpClentBDZP.class);
+    private static final ZTEsoftLogManager logger = ZTEsoftLogManager
+            .getLogger(HttpClentBDZP.class);
 
     public final static String BASEURL = "http://zhaopin.baidu.com/api/async?";
 
@@ -77,6 +76,7 @@ public class HttpClentBDZP {
     public ResponseBDZP doGet(QryParamBDZP param) throws BaseAppException {
         String url = BASEURL + param.encodeToUrl();
         String result = doGet(url);
+        logger.error("result:"+result);
         ResponseBDZP responseBDZP = JsonUtil.toBean(result, ResponseBDZP.class);
         return responseBDZP;
     }
@@ -140,7 +140,9 @@ public class HttpClentBDZP {
     public static void main(String[] args) {
         HttpClentBDZP client = new HttpClentBDZP();
         QryParamBDZP param = new QryParamBDZP();
-        param.setRn("2");
+        param.setQuery("架构师");
+        param.setPn("0");
+        param.setRn("20");
         String url = client.BASEURL + param.encodeToUrl();
         System.out.println("url:" + url);
         try {
@@ -150,6 +152,7 @@ public class HttpClentBDZP {
             // Object ooo = JSONUtils.parse(result);
             ResponseBDZP aaaa = JsonUtil.toBean(result, ResponseBDZP.class);
             System.out.println(aaaa);
+            System.out.println(JsonUtil.toJson(aaaa));
         }
         catch (BaseAppException e) {
             // TODO Auto-generated catch block

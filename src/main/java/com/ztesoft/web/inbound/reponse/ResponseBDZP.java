@@ -3,6 +3,7 @@
  */
 package com.ztesoft.web.inbound.reponse;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ztesoft.framework.dto.AbstractDto;
 
 /** 
@@ -17,7 +18,9 @@ import com.ztesoft.framework.dto.AbstractDto;
  */
 
 public class ResponseBDZP extends AbstractDto {
+    @JsonProperty("status")
     private String status;
+    @JsonProperty("data")
     private ResponseBDZPBody data;
     /**
      * @return the status

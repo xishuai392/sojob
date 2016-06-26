@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.ztesoft.web.busiz.db.dao.mapper.ISjJobMapper" >
+  <resultMap id="BaseResultMap" type="com.ztesoft.web.busiz.db.po.SjJobPO">
+  	<id column="job_id" property="jobId" jdbcType="INTEGER" />
+  	<result column="job_name" property="jobName" jdbcType="VARCHAR" />
+  	<result column="comp_name" property="compName" jdbcType="VARCHAR" />
+  	<result column="comp_id" property="compId" jdbcType="VARCHAR" />
+  	<result column="comp_addr" property="compAddr" jdbcType="VARCHAR" />
+  	<result column="comp_desc" property="compDesc" jdbcType="VARCHAR" />
+  	<result column="comp_email" property="compEmail" jdbcType="VARCHAR" />
+  	<result column="comp_type" property="compType" jdbcType="VARCHAR" />
+  	<result column="comp_scale" property="compScale" jdbcType="VARCHAR" />
+  	<result column="comp_scale_min" property="compScaleMin" jdbcType="INTEGER" />
+  	<result column="comp_scale_max" property="compScaleMax" jdbcType="INTEGER" />
+  	<result column="salary_range" property="salaryRange" jdbcType="VARCHAR" />
+  	<result column="salary_min" property="salaryMin" jdbcType="INTEGER" />
+  	<result column="salary_max" property="salaryMax" jdbcType="INTEGER" />
+  	<result column="province" property="province" jdbcType="VARCHAR" />
+  	<result column="city" property="city" jdbcType="VARCHAR" />
+  	<result column="district" property="district" jdbcType="VARCHAR" />
+  	<result column="location" property="location" jdbcType="VARCHAR" />
+  	<result column="job_desc" property="jobDesc" jdbcType="VARCHAR" />
+  	<result column="job_type" property="jobType" jdbcType="VARCHAR" />
+  	<result column="education" property="education" jdbcType="VARCHAR" />
+  	<result column="sex" property="sex" jdbcType="VARCHAR" />
+  	<result column="number" property="number" jdbcType="VARCHAR" />
+  	<result column="experience" property="experience" jdbcType="VARCHAR" />
+  	<result column="exp_min" property="expMin" jdbcType="INTEGER" />
+  	<result column="exp_max" property="expMax" jdbcType="INTEGER" />
+  	<result column="job_first_class" property="jobFirstClass" jdbcType="VARCHAR" />
+  	<result column="job_second_class" property="jobSecondClass" jdbcType="VARCHAR" />
+  	<result column="job_third_class" property="jobThirdClass" jdbcType="VARCHAR" />
+  	<result column="job_fourth_class" property="jobFourthClass" jdbcType="VARCHAR" />
+  	<result column="industry" property="industry" jdbcType="VARCHAR" />
+  	<result column="start_date" property="startDate" jdbcType="DATE" />
+  	<result column="end_date" property="endDate" jdbcType="DATE" />
+  	<result column="site_id" property="siteId" jdbcType="VARCHAR" />
+  	<result column="site_name" property="siteName" jdbcType="VARCHAR" />
+  	<result column="site_url" property="siteUrl" jdbcType="VARCHAR" />
+  	<result column="job_url" property="jobUrl" jdbcType="VARCHAR" />
+  	<result column="version" property="version" jdbcType="BIGINT" />
+  	<result column="cts" property="cts" jdbcType="BIGINT" />
+  	<result column="dts" property="dts" jdbcType="BIGINT" />
+  	<result column="idts" property="idts" jdbcType="VARCHAR" />
+  	<result column="ts" property="ts" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+  	job_id,job_name,comp_name,comp_id,comp_addr,comp_desc,comp_email,comp_type,comp_scale,comp_scale_min,comp_scale_max,salary_range,salary_min,salary_max,province,city,district,location,job_desc,job_type,education,sex,number,experience,exp_min,exp_max,job_first_class,job_second_class,job_third_class,job_fourth_class,industry,start_date,end_date,site_id,site_name,site_url,job_url,version,cts,dts,idts,ts
+  </sql>
+  <sql id="Arg_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Arg_Where_Clause" >
+    <where >
+      <foreach collection="arg.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>  
+  <select id="selectByArg" resultMap="BaseResultMap" parameterType="com.ztesoft.web.busiz.db.arg.SjJobArg" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from SJ_JOB
+    <if test="_parameter != null" >
+      <include refid="Arg_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>  
+  <select id="selectByArgAndPage" resultMap="BaseResultMap" parameterType="com.ztesoft.web.busiz.db.arg.SjJobArg" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+     <if test="columns == null" >
+    	<include refid="Base_Column_List" />
+    </if>
+    <if test="columns != null" >
+    	${columns}
+   	</if>
+    from SJ_JOB
+    <if test="_parameter != null" >
+      <include refid="Arg_Where_Clause" />
+    </if>
+	<if test="groupByClause != null" >
+      group by ${groupByClause}
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="countByArg" parameterType="com.ztesoft.web.busiz.db.arg.SjJobArg" resultType="java.lang.Integer" >
+    <if test="countsql1 != null" >
+    	${countsql1}
+    	<if test="_parameter != null" >
+		  <include refid="Arg_Where_Clause" />
+		</if>
+		${countsql2}
+    </if>
+	<if test="countsql1 == null" >
+		select count(*) from SJ_JOB
+		<if test="_parameter != null" >
+		  <include refid="Arg_Where_Clause" />
+		</if>
+	</if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+	select
+	<include refid="Base_Column_List" />
+	from SJ_JOB
+	where job_id = #{jobId,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.ztesoft.web.busiz.db.po.SjJobPO"  >
+		insert into SJ_JOB(job_id,job_name,comp_name,comp_id,comp_addr,comp_desc,comp_email,comp_type,comp_scale,comp_scale_min,comp_scale_max,salary_range,salary_min,salary_max,province,city,district,location,job_desc,job_type,education,sex,number,experience,exp_min,exp_max,job_first_class,job_second_class,job_third_class,job_fourth_class,industry,start_date,end_date,site_id,site_name,site_url,job_url,version,cts,dts,idts,ts)
+		values (#{jobId,jdbcType=INTEGER},#{jobName,jdbcType=VARCHAR},#{compName,jdbcType=VARCHAR},#{compId,jdbcType=VARCHAR},#{compAddr,jdbcType=VARCHAR},#{compDesc,jdbcType=VARCHAR},#{compEmail,jdbcType=VARCHAR},#{compType,jdbcType=VARCHAR},#{compScale,jdbcType=VARCHAR},#{compScaleMin,jdbcType=INTEGER},#{compScaleMax,jdbcType=INTEGER},#{salaryRange,jdbcType=VARCHAR},#{salaryMin,jdbcType=INTEGER},#{salaryMax,jdbcType=INTEGER},#{province,jdbcType=VARCHAR},#{city,jdbcType=VARCHAR},#{district,jdbcType=VARCHAR},#{location,jdbcType=VARCHAR},#{jobDesc,jdbcType=VARCHAR},#{jobType,jdbcType=VARCHAR},#{education,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},#{number,jdbcType=VARCHAR},#{experience,jdbcType=VARCHAR},#{expMin,jdbcType=INTEGER},#{expMax,jdbcType=INTEGER},#{jobFirstClass,jdbcType=VARCHAR},#{jobSecondClass,jdbcType=VARCHAR},#{jobThirdClass,jdbcType=VARCHAR},#{jobFourthClass,jdbcType=VARCHAR},#{industry,jdbcType=VARCHAR},#{startDate,jdbcType=DATE},#{endDate,jdbcType=DATE},#{siteId,jdbcType=VARCHAR},#{siteName,jdbcType=VARCHAR},#{siteUrl,jdbcType=VARCHAR},#{jobUrl,jdbcType=VARCHAR},#{version,jdbcType=BIGINT},#{cts,jdbcType=BIGINT},#{dts,jdbcType=BIGINT},#{idts,jdbcType=VARCHAR},#{ts,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ztesoft.web.busiz.db.po.SjJobPO">
+		insert into SJ_JOB
+	<trim prefix="(" suffix=")" suffixOverrides="," >
+		<if test="jobId != null" >
+			job_id,
+		</if>
+		<if test="jobName != null" >
+			job_name,
+		</if>
+		<if test="compName != null" >
+			comp_name,
+		</if>
+		<if test="compId != null" >
+			comp_id,
+		</if>
+		<if test="compAddr != null" >
+			comp_addr,
+		</if>
+		<if test="compDesc != null" >
+			comp_desc,
+		</if>
+		<if test="compEmail != null" >
+			comp_email,
+		</if>
+		<if test="compType != null" >
+			comp_type,
+		</if>
+		<if test="compScale != null" >
+			comp_scale,
+		</if>
+		<if test="compScaleMin != null" >
+			comp_scale_min,
+		</if>
+		<if test="compScaleMax != null" >
+			comp_scale_max,
+		</if>
+		<if test="salaryRange != null" >
+			salary_range,
+		</if>
+		<if test="salaryMin != null" >
+			salary_min,
+		</if>
+		<if test="salaryMax != null" >
+			salary_max,
+		</if>
+		<if test="province != null" >
+			province,
+		</if>
+		<if test="city != null" >
+			city,
+		</if>
+		<if test="district != null" >
+			district,
+		</if>
+		<if test="location != null" >
+			location,
+		</if>
+		<if test="jobDesc != null" >
+			job_desc,
+		</if>
+		<if test="jobType != null" >
+			job_type,
+		</if>
+		<if test="education != null" >
+			education,
+		</if>
+		<if test="sex != null" >
+			sex,
+		</if>
+		<if test="number != null" >
+			number,
+		</if>
+		<if test="experience != null" >
+			experience,
+		</if>
+		<if test="expMin != null" >
+			exp_min,
+		</if>
+		<if test="expMax != null" >
+			exp_max,
+		</if>
+		<if test="jobFirstClass != null" >
+			job_first_class,
+		</if>
+		<if test="jobSecondClass != null" >
+			job_second_class,
+		</if>
+		<if test="jobThirdClass != null" >
+			job_third_class,
+		</if>
+		<if test="jobFourthClass != null" >
+			job_fourth_class,
+		</if>
+		<if test="industry != null" >
+			industry,
+		</if>
+		<if test="startDate != null" >
+			start_date,
+		</if>
+		<if test="endDate != null" >
+			end_date,
+		</if>
+		<if test="siteId != null" >
+			site_id,
+		</if>
+		<if test="siteName != null" >
+			site_name,
+		</if>
+		<if test="siteUrl != null" >
+			site_url,
+		</if>
+		<if test="jobUrl != null" >
+			job_url,
+		</if>
+		<if test="version != null" >
+			version,
+		</if>
+		<if test="cts != null" >
+			cts,
+		</if>
+		<if test="dts != null" >
+			dts,
+		</if>
+		<if test="idts != null" >
+			idts,
+		</if>
+		<if test="ts != null" >
+			ts,
+		</if>
+ 	</trim>
+	<trim prefix="values (" suffix=")" suffixOverrides="," >
+		<if test="jobId != null" >
+			#{jobId,jdbcType=INTEGER},
+		</if>
+		<if test="jobName != null" >
+			#{jobName,jdbcType=VARCHAR},
+		</if>
+		<if test="compName != null" >
+			#{compName,jdbcType=VARCHAR},
+		</if>
+		<if test="compId != null" >
+			#{compId,jdbcType=VARCHAR},
+		</if>
+		<if test="compAddr != null" >
+			#{compAddr,jdbcType=VARCHAR},
+		</if>
+		<if test="compDesc != null" >
+			#{compDesc,jdbcType=VARCHAR},
+		</if>
+		<if test="compEmail != null" >
+			#{compEmail,jdbcType=VARCHAR},
+		</if>
+		<if test="compType != null" >
+			#{compType,jdbcType=VARCHAR},
+		</if>
+		<if test="compScale != null" >
+			#{compScale,jdbcType=VARCHAR},
+		</if>
+		<if test="compScaleMin != null" >
+			#{compScaleMin,jdbcType=INTEGER},
+		</if>
+		<if test="compScaleMax != null" >
+			#{compScaleMax,jdbcType=INTEGER},
+		</if>
+		<if test="salaryRange != null" >
+			#{salaryRange,jdbcType=VARCHAR},
+		</if>
+		<if test="salaryMin != null" >
+			#{salaryMin,jdbcType=INTEGER},
+		</if>
+		<if test="salaryMax != null" >
+			#{salaryMax,jdbcType=INTEGER},
+		</if>
+		<if test="province != null" >
+			#{province,jdbcType=VARCHAR},
+		</if>
+		<if test="city != null" >
+			#{city,jdbcType=VARCHAR},
+		</if>
+		<if test="district != null" >
+			#{district,jdbcType=VARCHAR},
+		</if>
+		<if test="location != null" >
+			#{location,jdbcType=VARCHAR},
+		</if>
+		<if test="jobDesc != null" >
+			#{jobDesc,jdbcType=VARCHAR},
+		</if>
+		<if test="jobType != null" >
+			#{jobType,jdbcType=VARCHAR},
+		</if>
+		<if test="education != null" >
+			#{education,jdbcType=VARCHAR},
+		</if>
+		<if test="sex != null" >
+			#{sex,jdbcType=VARCHAR},
+		</if>
+		<if test="number != null" >
+			#{number,jdbcType=VARCHAR},
+		</if>
+		<if test="experience != null" >
+			#{experience,jdbcType=VARCHAR},
+		</if>
+		<if test="expMin != null" >
+			#{expMin,jdbcType=INTEGER},
+		</if>
+		<if test="expMax != null" >
+			#{expMax,jdbcType=INTEGER},
+		</if>
+		<if test="jobFirstClass != null" >
+			#{jobFirstClass,jdbcType=VARCHAR},
+		</if>
+		<if test="jobSecondClass != null" >
+			#{jobSecondClass,jdbcType=VARCHAR},
+		</if>
+		<if test="jobThirdClass != null" >
+			#{jobThirdClass,jdbcType=VARCHAR},
+		</if>
+		<if test="jobFourthClass != null" >
+			#{jobFourthClass,jdbcType=VARCHAR},
+		</if>
+		<if test="industry != null" >
+			#{industry,jdbcType=VARCHAR},
+		</if>
+		<if test="startDate != null" >
+			#{startDate,jdbcType=DATE},
+		</if>
+		<if test="endDate != null" >
+			#{endDate,jdbcType=DATE},
+		</if>
+		<if test="siteId != null" >
+			#{siteId,jdbcType=VARCHAR},
+		</if>
+		<if test="siteName != null" >
+			#{siteName,jdbcType=VARCHAR},
+		</if>
+		<if test="siteUrl != null" >
+			#{siteUrl,jdbcType=VARCHAR},
+		</if>
+		<if test="jobUrl != null" >
+			#{jobUrl,jdbcType=VARCHAR},
+		</if>
+		<if test="version != null" >
+			#{version,jdbcType=BIGINT},
+		</if>
+		<if test="cts != null" >
+			#{cts,jdbcType=BIGINT},
+		</if>
+		<if test="dts != null" >
+			#{dts,jdbcType=BIGINT},
+		</if>
+		<if test="idts != null" >
+			#{idts,jdbcType=VARCHAR},
+		</if>
+		<if test="ts != null" >
+			#{ts,jdbcType=BIGINT},
+		</if>
+ 	</trim> 	
+  </insert>	
+  <insert id="insertBatch" parameterType="list"  >
+	insert into SJ_JOB(job_id,job_name,comp_name,comp_id,comp_addr,comp_desc,comp_email,comp_type,comp_scale,comp_scale_min,comp_scale_max,salary_range,salary_min,salary_max,province,city,district,location,job_desc,job_type,education,sex,number,experience,exp_min,exp_max,job_first_class,job_second_class,job_third_class,job_fourth_class,industry,start_date,end_date,site_id,site_name,site_url,job_url,version,cts,dts,idts,ts)
+	 values 
+	 <foreach collection="list" item="item" index="index" separator=",">
+	 		(#{item.jobId,jdbcType=INTEGER},#{item.jobName,jdbcType=VARCHAR},#{item.compName,jdbcType=VARCHAR},#{item.compId,jdbcType=VARCHAR},#{item.compAddr,jdbcType=VARCHAR},#{item.compDesc,jdbcType=VARCHAR},#{item.compEmail,jdbcType=VARCHAR},#{item.compType,jdbcType=VARCHAR},#{item.compScale,jdbcType=VARCHAR},#{item.compScaleMin,jdbcType=INTEGER},#{item.compScaleMax,jdbcType=INTEGER},#{item.salaryRange,jdbcType=VARCHAR},#{item.salaryMin,jdbcType=INTEGER},#{item.salaryMax,jdbcType=INTEGER},#{item.province,jdbcType=VARCHAR},#{item.city,jdbcType=VARCHAR},#{item.district,jdbcType=VARCHAR},#{item.location,jdbcType=VARCHAR},#{item.jobDesc,jdbcType=VARCHAR},#{item.jobType,jdbcType=VARCHAR},#{item.education,jdbcType=VARCHAR},#{item.sex,jdbcType=VARCHAR},#{item.number,jdbcType=VARCHAR},#{item.experience,jdbcType=VARCHAR},#{item.expMin,jdbcType=INTEGER},#{item.expMax,jdbcType=INTEGER},#{item.jobFirstClass,jdbcType=VARCHAR},#{item.jobSecondClass,jdbcType=VARCHAR},#{item.jobThirdClass,jdbcType=VARCHAR},#{item.jobFourthClass,jdbcType=VARCHAR},#{item.industry,jdbcType=VARCHAR},#{item.startDate,jdbcType=DATE},#{item.endDate,jdbcType=DATE},#{item.siteId,jdbcType=VARCHAR},#{item.siteName,jdbcType=VARCHAR},#{item.siteUrl,jdbcType=VARCHAR},#{item.jobUrl,jdbcType=VARCHAR},#{item.version,jdbcType=BIGINT},#{item.cts,jdbcType=BIGINT},#{item.dts,jdbcType=BIGINT},#{item.idts,jdbcType=VARCHAR},#{item.ts,jdbcType=BIGINT})
+	 </foreach>
+  </insert>
+  <update id="updateByArgSelective" parameterType="map" >
+    update SJ_JOB
+    <set>
+		<if test="record.jobName != null" >
+			job_name= #{record.jobName,jdbcType=VARCHAR},
+		</if>
+		<if test="record.compName != null" >
+			comp_name= #{record.compName,jdbcType=VARCHAR},
+		</if>
+		<if test="record.compId != null" >
+			comp_id= #{record.compId,jdbcType=VARCHAR},
+		</if>
+		<if test="record.compAddr != null" >
+			comp_addr= #{record.compAddr,jdbcType=VARCHAR},
+		</if>
+		<if test="record.compDesc != null" >
+			comp_desc= #{record.compDesc,jdbcType=VARCHAR},
+		</if>
+		<if test="record.compEmail != null" >
+			comp_email= #{record.compEmail,jdbcType=VARCHAR},
+		</if>
+		<if test="record.compType != null" >
+			comp_type= #{record.compType,jdbcType=VARCHAR},
+		</if>
+		<if test="record.compScale != null" >
+			comp_scale= #{record.compScale,jdbcType=VARCHAR},
+		</if>
+		<if test="record.compScaleMin != null" >
+			comp_scale_min= #{record.compScaleMin,jdbcType=INTEGER},
+		</if>
+		<if test="record.compScaleMax != null" >
+			comp_scale_max= #{record.compScaleMax,jdbcType=INTEGER},
+		</if>
+		<if test="record.salaryRange != null" >
+			salary_range= #{record.salaryRange,jdbcType=VARCHAR},
+		</if>
+		<if test="record.salaryMin != null" >
+			salary_min= #{record.salaryMin,jdbcType=INTEGER},
+		</if>
+		<if test="record.salaryMax != null" >
+			salary_max= #{record.salaryMax,jdbcType=INTEGER},
+		</if>
+		<if test="record.province != null" >
+			province= #{record.province,jdbcType=VARCHAR},
+		</if>
+		<if test="record.city != null" >
+			city= #{record.city,jdbcType=VARCHAR},
+		</if>
+		<if test="record.district != null" >
+			district= #{record.district,jdbcType=VARCHAR},
+		</if>
+		<if test="record.location != null" >
+			location= #{record.location,jdbcType=VARCHAR},
+		</if>
+		<if test="record.jobDesc != null" >
+			job_desc= #{record.jobDesc,jdbcType=VARCHAR},
+		</if>
+		<if test="record.jobType != null" >
+			job_type= #{record.jobType,jdbcType=VARCHAR},
+		</if>
+		<if test="record.education != null" >
+			education= #{record.education,jdbcType=VARCHAR},
+		</if>
+		<if test="record.sex != null" >
+			sex= #{record.sex,jdbcType=VARCHAR},
+		</if>
+		<if test="record.number != null" >
+			number= #{record.number,jdbcType=VARCHAR},
+		</if>
+		<if test="record.experience != null" >
+			experience= #{record.experience,jdbcType=VARCHAR},
+		</if>
+		<if test="record.expMin != null" >
+			exp_min= #{record.expMin,jdbcType=INTEGER},
+		</if>
+		<if test="record.expMax != null" >
+			exp_max= #{record.expMax,jdbcType=INTEGER},
+		</if>
+		<if test="record.jobFirstClass != null" >
+			job_first_class= #{record.jobFirstClass,jdbcType=VARCHAR},
+		</if>
+		<if test="record.jobSecondClass != null" >
+			job_second_class= #{record.jobSecondClass,jdbcType=VARCHAR},
+		</if>
+		<if test="record.jobThirdClass != null" >
+			job_third_class= #{record.jobThirdClass,jdbcType=VARCHAR},
+		</if>
+		<if test="record.jobFourthClass != null" >
+			job_fourth_class= #{record.jobFourthClass,jdbcType=VARCHAR},
+		</if>
+		<if test="record.industry != null" >
+			industry= #{record.industry,jdbcType=VARCHAR},
+		</if>
+		<if test="record.startDate != null" >
+			start_date= #{record.startDate,jdbcType=DATE},
+		</if>
+		<if test="record.endDate != null" >
+			end_date= #{record.endDate,jdbcType=DATE},
+		</if>
+		<if test="record.siteId != null" >
+			site_id= #{record.siteId,jdbcType=VARCHAR},
+		</if>
+		<if test="record.siteName != null" >
+			site_name= #{record.siteName,jdbcType=VARCHAR},
+		</if>
+		<if test="record.siteUrl != null" >
+			site_url= #{record.siteUrl,jdbcType=VARCHAR},
+		</if>
+		<if test="record.jobUrl != null" >
+			job_url= #{record.jobUrl,jdbcType=VARCHAR},
+		</if>
+		<if test="record.version != null" >
+			version= #{record.version,jdbcType=BIGINT},
+		</if>
+		<if test="record.cts != null" >
+			cts= #{record.cts,jdbcType=BIGINT},
+		</if>
+		<if test="record.dts != null" >
+			dts= #{record.dts,jdbcType=BIGINT},
+		</if>
+		<if test="record.idts != null" >
+			idts= #{record.idts,jdbcType=VARCHAR},
+		</if>
+		<if test="record.ts != null" >
+			ts= #{record.ts,jdbcType=BIGINT}
+		</if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Arg_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByArg" parameterType="map" >
+    update SJ_JOB
+    set 
+		job_id = #{record.jobId,jdbcType=INTEGER},
+		job_name = #{record.jobName,jdbcType=VARCHAR},
+		comp_name = #{record.compName,jdbcType=VARCHAR},
+		comp_id = #{record.compId,jdbcType=VARCHAR},
+		comp_addr = #{record.compAddr,jdbcType=VARCHAR},
+		comp_desc = #{record.compDesc,jdbcType=VARCHAR},
+		comp_email = #{record.compEmail,jdbcType=VARCHAR},
+		comp_type = #{record.compType,jdbcType=VARCHAR},
+		comp_scale = #{record.compScale,jdbcType=VARCHAR},
+		comp_scale_min = #{record.compScaleMin,jdbcType=INTEGER},
+		comp_scale_max = #{record.compScaleMax,jdbcType=INTEGER},
+		salary_range = #{record.salaryRange,jdbcType=VARCHAR},
+		salary_min = #{record.salaryMin,jdbcType=INTEGER},
+		salary_max = #{record.salaryMax,jdbcType=INTEGER},
+		province = #{record.province,jdbcType=VARCHAR},
+		city = #{record.city,jdbcType=VARCHAR},
+		district = #{record.district,jdbcType=VARCHAR},
+		location = #{record.location,jdbcType=VARCHAR},
+		job_desc = #{record.jobDesc,jdbcType=VARCHAR},
+		job_type = #{record.jobType,jdbcType=VARCHAR},
+		education = #{record.education,jdbcType=VARCHAR},
+		sex = #{record.sex,jdbcType=VARCHAR},
+		number = #{record.number,jdbcType=VARCHAR},
+		experience = #{record.experience,jdbcType=VARCHAR},
+		exp_min = #{record.expMin,jdbcType=INTEGER},
+		exp_max = #{record.expMax,jdbcType=INTEGER},
+		job_first_class = #{record.jobFirstClass,jdbcType=VARCHAR},
+		job_second_class = #{record.jobSecondClass,jdbcType=VARCHAR},
+		job_third_class = #{record.jobThirdClass,jdbcType=VARCHAR},
+		job_fourth_class = #{record.jobFourthClass,jdbcType=VARCHAR},
+		industry = #{record.industry,jdbcType=VARCHAR},
+		start_date = #{record.startDate,jdbcType=DATE},
+		end_date = #{record.endDate,jdbcType=DATE},
+		site_id = #{record.siteId,jdbcType=VARCHAR},
+		site_name = #{record.siteName,jdbcType=VARCHAR},
+		site_url = #{record.siteUrl,jdbcType=VARCHAR},
+		job_url = #{record.jobUrl,jdbcType=VARCHAR},
+		version = #{record.version,jdbcType=BIGINT},
+		cts = #{record.cts,jdbcType=BIGINT},
+		dts = #{record.dts,jdbcType=BIGINT},
+		idts = #{record.idts,jdbcType=VARCHAR},
+		ts = #{record.ts,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Arg_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.web.busiz.db.po.SjJobPO" >
+		update SJ_JOB
+	<set >
+	<if test="jobName != null" >
+		job_name = #{jobName,jdbcType=VARCHAR},
+	</if>
+	<if test="compName != null" >
+		comp_name = #{compName,jdbcType=VARCHAR},
+	</if>
+	<if test="compId != null" >
+		comp_id = #{compId,jdbcType=VARCHAR},
+	</if>
+	<if test="compAddr != null" >
+		comp_addr = #{compAddr,jdbcType=VARCHAR},
+	</if>
+	<if test="compDesc != null" >
+		comp_desc = #{compDesc,jdbcType=VARCHAR},
+	</if>
+	<if test="compEmail != null" >
+		comp_email = #{compEmail,jdbcType=VARCHAR},
+	</if>
+	<if test="compType != null" >
+		comp_type = #{compType,jdbcType=VARCHAR},
+	</if>
+	<if test="compScale != null" >
+		comp_scale = #{compScale,jdbcType=VARCHAR},
+	</if>
+	<if test="compScaleMin != null" >
+		comp_scale_min = #{compScaleMin,jdbcType=INTEGER},
+	</if>
+	<if test="compScaleMax != null" >
+		comp_scale_max = #{compScaleMax,jdbcType=INTEGER},
+	</if>
+	<if test="salaryRange != null" >
+		salary_range = #{salaryRange,jdbcType=VARCHAR},
+	</if>
+	<if test="salaryMin != null" >
+		salary_min = #{salaryMin,jdbcType=INTEGER},
+	</if>
+	<if test="salaryMax != null" >
+		salary_max = #{salaryMax,jdbcType=INTEGER},
+	</if>
+	<if test="province != null" >
+		province = #{province,jdbcType=VARCHAR},
+	</if>
+	<if test="city != null" >
+		city = #{city,jdbcType=VARCHAR},
+	</if>
+	<if test="district != null" >
+		district = #{district,jdbcType=VARCHAR},
+	</if>
+	<if test="location != null" >
+		location = #{location,jdbcType=VARCHAR},
+	</if>
+	<if test="jobDesc != null" >
+		job_desc = #{jobDesc,jdbcType=VARCHAR},
+	</if>
+	<if test="jobType != null" >
+		job_type = #{jobType,jdbcType=VARCHAR},
+	</if>
+	<if test="education != null" >
+		education = #{education,jdbcType=VARCHAR},
+	</if>
+	<if test="sex != null" >
+		sex = #{sex,jdbcType=VARCHAR},
+	</if>
+	<if test="number != null" >
+		number = #{number,jdbcType=VARCHAR},
+	</if>
+	<if test="experience != null" >
+		experience = #{experience,jdbcType=VARCHAR},
+	</if>
+	<if test="expMin != null" >
+		exp_min = #{expMin,jdbcType=INTEGER},
+	</if>
+	<if test="expMax != null" >
+		exp_max = #{expMax,jdbcType=INTEGER},
+	</if>
+	<if test="jobFirstClass != null" >
+		job_first_class = #{jobFirstClass,jdbcType=VARCHAR},
+	</if>
+	<if test="jobSecondClass != null" >
+		job_second_class = #{jobSecondClass,jdbcType=VARCHAR},
+	</if>
+	<if test="jobThirdClass != null" >
+		job_third_class = #{jobThirdClass,jdbcType=VARCHAR},
+	</if>
+	<if test="jobFourthClass != null" >
+		job_fourth_class = #{jobFourthClass,jdbcType=VARCHAR},
+	</if>
+	<if test="industry != null" >
+		industry = #{industry,jdbcType=VARCHAR},
+	</if>
+	<if test="startDate != null" >
+		start_date = #{startDate,jdbcType=DATE},
+	</if>
+	<if test="endDate != null" >
+		end_date = #{endDate,jdbcType=DATE},
+	</if>
+	<if test="siteId != null" >
+		site_id = #{siteId,jdbcType=VARCHAR},
+	</if>
+	<if test="siteName != null" >
+		site_name = #{siteName,jdbcType=VARCHAR},
+	</if>
+	<if test="siteUrl != null" >
+		site_url = #{siteUrl,jdbcType=VARCHAR},
+	</if>
+	<if test="jobUrl != null" >
+		job_url = #{jobUrl,jdbcType=VARCHAR},
+	</if>
+	<if test="version != null" >
+		version = #{version,jdbcType=BIGINT},
+	</if>
+	<if test="cts != null" >
+		cts = #{cts,jdbcType=BIGINT},
+	</if>
+	<if test="dts != null" >
+		dts = #{dts,jdbcType=BIGINT},
+	</if>
+	<if test="idts != null" >
+		idts = #{idts,jdbcType=VARCHAR},
+	</if>
+	<if test="ts != null" >
+		ts = #{ts,jdbcType=BIGINT}
+	</if>
+	</set >
+	 where job_id = #{jobId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ztesoft.web.busiz.db.po.SjJobPO" >
+		update SJ_JOB
+		set 
+			job_name = #{jobName,jdbcType=VARCHAR},
+			comp_name = #{compName,jdbcType=VARCHAR},
+			comp_id = #{compId,jdbcType=VARCHAR},
+			comp_addr = #{compAddr,jdbcType=VARCHAR},
+			comp_desc = #{compDesc,jdbcType=VARCHAR},
+			comp_email = #{compEmail,jdbcType=VARCHAR},
+			comp_type = #{compType,jdbcType=VARCHAR},
+			comp_scale = #{compScale,jdbcType=VARCHAR},
+			comp_scale_min = #{compScaleMin,jdbcType=INTEGER},
+			comp_scale_max = #{compScaleMax,jdbcType=INTEGER},
+			salary_range = #{salaryRange,jdbcType=VARCHAR},
+			salary_min = #{salaryMin,jdbcType=INTEGER},
+			salary_max = #{salaryMax,jdbcType=INTEGER},
+			province = #{province,jdbcType=VARCHAR},
+			city = #{city,jdbcType=VARCHAR},
+			district = #{district,jdbcType=VARCHAR},
+			location = #{location,jdbcType=VARCHAR},
+			job_desc = #{jobDesc,jdbcType=VARCHAR},
+			job_type = #{jobType,jdbcType=VARCHAR},
+			education = #{education,jdbcType=VARCHAR},
+			sex = #{sex,jdbcType=VARCHAR},
+			number = #{number,jdbcType=VARCHAR},
+			experience = #{experience,jdbcType=VARCHAR},
+			exp_min = #{expMin,jdbcType=INTEGER},
+			exp_max = #{expMax,jdbcType=INTEGER},
+			job_first_class = #{jobFirstClass,jdbcType=VARCHAR},
+			job_second_class = #{jobSecondClass,jdbcType=VARCHAR},
+			job_third_class = #{jobThirdClass,jdbcType=VARCHAR},
+			job_fourth_class = #{jobFourthClass,jdbcType=VARCHAR},
+			industry = #{industry,jdbcType=VARCHAR},
+			start_date = #{startDate,jdbcType=DATE},
+			end_date = #{endDate,jdbcType=DATE},
+			site_id = #{siteId,jdbcType=VARCHAR},
+			site_name = #{siteName,jdbcType=VARCHAR},
+			site_url = #{siteUrl,jdbcType=VARCHAR},
+			job_url = #{jobUrl,jdbcType=VARCHAR},
+			version = #{version,jdbcType=BIGINT},
+			cts = #{cts,jdbcType=BIGINT},
+			dts = #{dts,jdbcType=BIGINT},
+			idts = #{idts,jdbcType=VARCHAR},
+			ts = #{ts,jdbcType=BIGINT}
+	 where job_id = #{jobId,jdbcType=INTEGER}
+   </update>
+  <delete id="deleteByArg" parameterType="com.ztesoft.web.busiz.db.arg.SjJobArg" >
+    delete from SJ_JOB
+    <if test="_parameter != null" >
+      <include refid="Arg_Where_Clause" />
+    </if>
+  </delete>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+	 delete from SJ_JOB
+	 where job_id = #{jobId,jdbcType=INTEGER}
+  </delete>
+</mapper>  
