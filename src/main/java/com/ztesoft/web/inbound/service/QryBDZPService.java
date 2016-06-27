@@ -6,16 +6,20 @@ package com.ztesoft.web.inbound.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ztesoft.core.common.Page;
+import com.ztesoft.core.idproduce.ISequenceGenerator;
 import com.ztesoft.framework.exception.BaseAppException;
 import com.ztesoft.framework.log.ZTEsoftLogManager;
 import com.ztesoft.framework.util.DateUtils;
 import com.ztesoft.web.busiz.db.po.SjJobPO;
 import com.ztesoft.web.busiz.service.ISjJobService;
+import com.ztesoft.web.domain.TableInfoConstants;
 import com.ztesoft.web.inbound.param.QryParamBDZP;
 import com.ztesoft.web.inbound.reponse.JobInfo;
 import com.ztesoft.web.inbound.reponse.JobInfoGroup;
@@ -45,6 +49,12 @@ public class QryBDZPService {
     private ISjJobService sjJobService;
 
     /**
+     * 主键生成器
+     */
+    @Resource(name = "sequenceProcGenerator")
+    private ISequenceGenerator sequenceGenerator;
+
+    /**
      * 查询后把结果持久化到库里
      * 
      * @param qryParam
@@ -58,12 +68,19 @@ public class QryBDZPService {
             result = httpClentBDZP.doGet(qryParam);
 
             JobInfo[] jobAry = parser(result, pageResult);
-            if (null == jobAry) {
-                logger.error("本次数据存在异常，解析结果为空。");
+            if (null == jobAry||jobAry.length==0) {
+                logger.error("本次数据查询不到，解析结果为空。");
+                return pageResult;
             }
             List<SjJobPO> poList = new ArrayList<SjJobPO>();
-            for (JobInfo jobInfo : jobAry) {
-                poList.add(converToJobPO(jobInfo));
+            // 获取主键
+            Integer[] jobIdAry = sequenceGenerator.sequenceBatchIntValue(
+                    TableInfoConstants.SJ_JOB,
+                    TableInfoConstants.SJ_JOB_PKFIELD, jobAry.length);
+            for (int i = 0; i < jobAry.length; i++) {
+                SjJobPO jobPO = converToJobPO(jobAry[i]);
+                jobPO.setJobId(jobIdAry[i]);
+                poList.add(jobPO);
             }
             pageResult.setResultList(poList);
             sjJobService.addBatch(poList);

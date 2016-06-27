@@ -3,7 +3,15 @@
  */
 package com.ztesoft.web.inbound.param;
 
+import java.io.UnsupportedEncodingException;
+
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import com.ztesoft.framework.dto.AbstractDto;
+import com.ztesoft.framework.exception.BaseAppException;
+import com.ztesoft.framework.exception.ExceptionHandler;
+import com.ztesoft.framework.log.ZTEsoftLogManager;
+import com.ztesoft.framework.util.FrameWorkConstants;
 import com.ztesoft.framework.util.StringUtils;
 
 /**
@@ -18,6 +26,8 @@ import com.ztesoft.framework.util.StringUtils;
  */
 
 public class QryParamBDZP extends AbstractDto {
+    private static final ZTEsoftLogManager logger = ZTEsoftLogManager
+            .getLogger(QryParamBDZP.class);
 
     // 关键词
     private String query;
@@ -309,31 +319,99 @@ public class QryParamBDZP extends AbstractDto {
     }
 
     // 转换成URL地址
-    public String encodeToUrl() {
+    public String encodeToUrl() throws BaseAppException {
         StringBuffer strb = new StringBuffer();
-        strb.append("query=").append(StringUtils.toString(this.query));
-        strb.append("&salary=").append(StringUtils.toString(this.salary));
-        strb.append("&welfare=").append(StringUtils.toString(this.welfare));
-        strb.append("&education=").append(StringUtils.toString(this.education));
-        strb.append("&sort_key=").append(StringUtils.toString(this.sort_key));
-        strb.append("&sort_type=").append(StringUtils.toString(this.sort_type));
-        strb.append("&city=").append(StringUtils.toString(this.city));
-        strb.append("&district=").append(StringUtils.toString(this.district));
-        strb.append("&experience=").append(
-                StringUtils.toString(this.experience));
-        strb.append("&employertype=").append(
-                StringUtils.toString(this.employertype));
-        strb.append("&jobfirstclass=").append(
-                StringUtils.toString(this.jobfirstclass));
-        strb.append("&jobsecondclass=").append(
-                StringUtils.toString(this.jobsecondclass));
-        strb.append("&jobthirdclass=").append(
-                StringUtils.toString(this.jobthirdclass));
-        strb.append("&date=").append(StringUtils.toString(this.date));
-        strb.append("&detailmode=").append(
-                StringUtils.toString(this.detailmode));
-        strb.append("&rn=").append(StringUtils.toString(this.rn));
-        strb.append("&pn=").append(StringUtils.toString(this.pn));
+        try {
+//            strb.append("query=").append(
+//                    new String(StringUtils.encode(
+//                            StringUtils.toString(this.query),
+//                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+
+//            strb.append("query=").append(
+//                    java.net.URLEncoder.encode(
+//                            StringUtils.toString(this.query),
+//                            FrameWorkConstants.UTF_8_ENCODING));
+            
+            strb.append("query=").append(
+                    StringEscapeUtils.escapeJava(this.query));
+            
+
+            strb.append("&salary=").append(
+                    new String(java.net.URLEncoder.encode(
+                            StringUtils.toString(this.salary),
+                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+            strb.append("&welfare=").append(
+                    new String(java.net.URLEncoder.encode(
+                            StringUtils.toString(this.welfare),
+                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+            strb.append("&education=").append(
+                    new String(java.net.URLEncoder.encode(
+                            StringUtils.toString(this.education),
+                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+            strb.append("&sort_key=").append(
+                    StringUtils.toString(this.sort_key));
+            strb.append("&sort_type=").append(
+                    StringUtils.toString(this.sort_type));
+            strb.append("&city=").append(
+                    new String(java.net.URLEncoder.encode(
+                            StringUtils.toString(this.city),
+                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+            strb.append("&district=").append(
+                    StringUtils.toString(this.district));
+            strb.append("&experience=").append(
+                    new String(java.net.URLEncoder.encode(
+                            StringUtils.toString(this.experience),
+                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+            strb.append("&employertype=").append(
+                    new String(java.net.URLEncoder.encode(
+                            StringUtils.toString(this.employertype),
+                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+            strb.append("&jobfirstclass=").append(
+                    new String(java.net.URLEncoder.encode(
+                            StringUtils.toString(this.jobfirstclass),
+                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+            strb.append("&jobsecondclass=").append(
+                    new String(java.net.URLEncoder.encode(
+                            StringUtils.toString(this.jobsecondclass),
+                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+            strb.append("&jobthirdclass=").append(
+                    new String(java.net.URLEncoder.encode(
+                            StringUtils.toString(this.jobthirdclass),
+                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+            strb.append("&date=").append(StringUtils.toString(this.date));
+            strb.append("&detailmode=").append(
+                    StringUtils.toString(this.detailmode));
+            strb.append("&rn=").append(StringUtils.toString(this.rn));
+            strb.append("&pn=").append(StringUtils.toString(this.pn));
+        }
+        catch (UnsupportedEncodingException e) {
+            logger.error("将查询参数转换成URL时发生异常：", e);
+            ExceptionHandler.publish("APP-00-0064");
+        }
         return strb.toString();
+    }
+
+    public static void main(String[] args) throws UnsupportedEncodingException {
+
+        // String name = "中文";
+        String name = "";
+        // URL编码
+        String nameStr = new String(java.net.URLEncoder.encode(name, "utf-8")
+                .getBytes());
+        System.out.println(nameStr);
+
+        String cnStr = "中文";
+        String cnStr1 = "";
+        
+        System.out.println(
+                StringEscapeUtils.escapeJava("中国"));
+
+        cnStr1 = new String(java.net.URLEncoder.encode(cnStr, "UTF-8")
+                .getBytes(), "ISO-8859-1");
+        System.out.println(cnStr1);
+        // URL解码
+        System.out.println(java.net.URLDecoder.decode(
+                new String(cnStr1.getBytes("ISO-8859-1"), "UTF-8"), "UTF-8"));
+
     }
 }

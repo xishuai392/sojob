@@ -3,6 +3,7 @@
  */
 package com.ztesoft.web.inbound.service;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -74,9 +75,10 @@ public class HttpClentBDZP {
     }
 
     public ResponseBDZP doGet(QryParamBDZP param) throws BaseAppException {
-        String url = BASEURL + param.encodeToUrl();
+        String url = BASEURL +  StringEscapeUtils.unescapeJava(param.encodeToUrl());
+        logger.error("url:" + url);
         String result = doGet(url);
-        logger.error("result:"+result);
+        logger.error("result:" + result);
         ResponseBDZP responseBDZP = JsonUtil.toBean(result, ResponseBDZP.class);
         return responseBDZP;
     }
@@ -136,8 +138,9 @@ public class HttpClentBDZP {
 
     /**
      * @param args
+     * @throws BaseAppException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BaseAppException {
         HttpClentBDZP client = new HttpClentBDZP();
         QryParamBDZP param = new QryParamBDZP();
         param.setQuery("架构师");
