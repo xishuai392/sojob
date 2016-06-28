@@ -66,6 +66,8 @@ public class QryBDZPService {
                 .getPn()), Integer.parseInt(qryParam.getRn()));
         try {
             result = httpClentBDZP.doGet(qryParam);
+            //result = httpClentBDZP.doPost(qryParam);
+            
 
             JobInfo[] jobAry = parser(result, pageResult);
             if (null == jobAry||jobAry.length==0) {

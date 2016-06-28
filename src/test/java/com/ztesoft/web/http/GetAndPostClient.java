@@ -188,8 +188,8 @@ public class GetAndPostClient {
      */
     public static void main(String[] args) {
         Map<String, String> parameters = new HashMap<String, String>();
-        parameters.put("query", "架构师");
-        parameters.put("rn", "10");
+        parameters.put("query", "建筑师");
+        parameters.put("rn", "30");
         parameters.put("pn", "0");
         String result = GetAndPostClient.sendGet(
                 "http://zhaopin.baidu.com/api/async", parameters);

@@ -4,6 +4,8 @@
 package com.ztesoft.web.inbound.param;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 
@@ -325,29 +327,30 @@ public class QryParamBDZP extends AbstractDto {
 //            strb.append("query=").append(
 //                    new String(StringUtils.encode(
 //                            StringUtils.toString(this.query),
-//                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+//                            FrameWorkConstants.UTF_8_ENCODING)));
 
 //            strb.append("query=").append(
 //                    java.net.URLEncoder.encode(
 //                            StringUtils.toString(this.query),
 //                            FrameWorkConstants.UTF_8_ENCODING));
             
-            strb.append("query=").append(
-                    StringEscapeUtils.escapeJava(this.query));
-            
+//            strb.append("query=").append(
+//                    StringEscapeUtils.escapeJava(this.query));
+            strb.append("query=").append(java.net.URLEncoder.encode(
+                    this.query, "UTF-8"));
 
             strb.append("&salary=").append(
                     new String(java.net.URLEncoder.encode(
                             StringUtils.toString(this.salary),
-                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+                            FrameWorkConstants.UTF_8_ENCODING)));
             strb.append("&welfare=").append(
                     new String(java.net.URLEncoder.encode(
                             StringUtils.toString(this.welfare),
-                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+                            FrameWorkConstants.UTF_8_ENCODING)));
             strb.append("&education=").append(
                     new String(java.net.URLEncoder.encode(
                             StringUtils.toString(this.education),
-                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+                            FrameWorkConstants.UTF_8_ENCODING)));
             strb.append("&sort_key=").append(
                     StringUtils.toString(this.sort_key));
             strb.append("&sort_type=").append(
@@ -355,29 +358,29 @@ public class QryParamBDZP extends AbstractDto {
             strb.append("&city=").append(
                     new String(java.net.URLEncoder.encode(
                             StringUtils.toString(this.city),
-                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+                            FrameWorkConstants.UTF_8_ENCODING)));
             strb.append("&district=").append(
                     StringUtils.toString(this.district));
             strb.append("&experience=").append(
                     new String(java.net.URLEncoder.encode(
                             StringUtils.toString(this.experience),
-                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+                            FrameWorkConstants.UTF_8_ENCODING)));
             strb.append("&employertype=").append(
                     new String(java.net.URLEncoder.encode(
                             StringUtils.toString(this.employertype),
-                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+                            FrameWorkConstants.UTF_8_ENCODING)));
             strb.append("&jobfirstclass=").append(
                     new String(java.net.URLEncoder.encode(
                             StringUtils.toString(this.jobfirstclass),
-                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+                            FrameWorkConstants.UTF_8_ENCODING)));
             strb.append("&jobsecondclass=").append(
                     new String(java.net.URLEncoder.encode(
                             StringUtils.toString(this.jobsecondclass),
-                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+                            FrameWorkConstants.UTF_8_ENCODING)));
             strb.append("&jobthirdclass=").append(
                     new String(java.net.URLEncoder.encode(
                             StringUtils.toString(this.jobthirdclass),
-                            FrameWorkConstants.UTF_8_ENCODING).getBytes()));
+                            FrameWorkConstants.UTF_8_ENCODING)));
             strb.append("&date=").append(StringUtils.toString(this.date));
             strb.append("&detailmode=").append(
                     StringUtils.toString(this.detailmode));
@@ -390,6 +393,28 @@ public class QryParamBDZP extends AbstractDto {
         }
         return strb.toString();
     }
+    
+    public  Map<String, String> converToParams(){
+        Map<String, String> parameters = new HashMap<String, String>();
+        parameters.put("query", StringUtils.toString(this.query));
+        parameters.put("salary", StringUtils.toString(this.salary));
+        parameters.put("welfare", StringUtils.toString(this.welfare));
+        parameters.put("education", StringUtils.toString(this.education));
+        parameters.put("sort_key", StringUtils.toString(this.sort_key));
+        parameters.put("sort_type", StringUtils.toString(this.sort_type));
+        parameters.put("city", StringUtils.toString(this.city));
+        parameters.put("district", StringUtils.toString(this.district));
+        parameters.put("experience", StringUtils.toString(this.experience));
+        parameters.put("employertype", StringUtils.toString(this.employertype));
+        parameters.put("jobfirstclass", StringUtils.toString(this.jobfirstclass));
+        parameters.put("jobsecondclass", StringUtils.toString(this.jobsecondclass));
+        parameters.put("jobthirdclass", StringUtils.toString(this.jobthirdclass));
+        parameters.put("date", StringUtils.toString(this.date));
+        parameters.put("detailmode", StringUtils.toString(this.detailmode));
+        parameters.put("rn", StringUtils.toString(this.rn));
+        parameters.put("pn", StringUtils.toString(this.pn));
+        return parameters;
+    } 
 
     public static void main(String[] args) throws UnsupportedEncodingException {
 
@@ -397,7 +422,7 @@ public class QryParamBDZP extends AbstractDto {
         String name = "";
         // URL编码
         String nameStr = new String(java.net.URLEncoder.encode(name, "utf-8")
-                .getBytes());
+                );
         System.out.println(nameStr);
 
         String cnStr = "中文";
@@ -406,8 +431,7 @@ public class QryParamBDZP extends AbstractDto {
         System.out.println(
                 StringEscapeUtils.escapeJava("中国"));
 
-        cnStr1 = new String(java.net.URLEncoder.encode(cnStr, "UTF-8")
-                .getBytes(), "ISO-8859-1");
+        cnStr1 = new String(java.net.URLEncoder.encode(cnStr, "UTF-8"));
         System.out.println(cnStr1);
         // URL解码
         System.out.println(java.net.URLDecoder.decode(
