@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ztesoft.core.common.Page;
 import com.ztesoft.framework.exception.BaseAppException;
 import com.ztesoft.framework.log.ZTEsoftLogManager;
 import com.ztesoft.web.busiz.db.po.SjJobPO;
+import com.ztesoft.web.busiz.db.po.UserBehavePO;
+import com.ztesoft.web.busiz.service.IUserBehaveService;
 import com.ztesoft.web.inbound.conver.QryParamConver;
 import com.ztesoft.web.inbound.param.QryParamBDZP;
 import com.ztesoft.web.inbound.service.QryBDZPService;
@@ -37,6 +38,9 @@ public class QryJobController {
     @Autowired
     private QryBDZPService qryBDZPService;
 
+    @Autowired
+    IUserBehaveService userBehaveService;
+
     @RequestMapping("index")
     public String index(Model model) {
         // ///////
@@ -50,11 +54,21 @@ public class QryJobController {
     @RequestMapping("byPage")
     @ResponseBody
     public Page<SjJobPO> queryRecordByPage(QryJobParam qryJobParam,
-            Page<SjJobPO> qryPage) throws BaseAppException {
+            Page<SjJobPO> qryPage, UserBehavePO userBehavePO)
+            throws BaseAppException {
         QryParamBDZP qryParamBDZP = QryParamConver.toBDZP(qryJobParam, qryPage);
         Page<SjJobPO> resultPage = qryBDZPService.saveByQury(qryParamBDZP);
         // 设置下起始记录
         resultPage.setStart(qryPage.getStart());
+
+        try {
+            userBehavePO.setModule("QUERY_JOB");
+            // 记录用户行为
+            userBehaveService.add(userBehavePO);
+        }
+        catch (Exception e) {
+            logger.error("记录用户行为时，发生异常", e);
+        }
         return resultPage;
     }
 

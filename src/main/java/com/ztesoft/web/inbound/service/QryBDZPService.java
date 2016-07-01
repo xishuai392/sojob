@@ -4,6 +4,7 @@
 package com.ztesoft.web.inbound.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -17,6 +18,7 @@ import com.ztesoft.core.idproduce.ISequenceGenerator;
 import com.ztesoft.framework.exception.BaseAppException;
 import com.ztesoft.framework.log.ZTEsoftLogManager;
 import com.ztesoft.framework.util.DateUtils;
+import com.ztesoft.framework.util.FrameWorkConstants;
 import com.ztesoft.web.busiz.db.po.SjJobPO;
 import com.ztesoft.web.busiz.service.ISjJobService;
 import com.ztesoft.web.domain.TableInfoConstants;
@@ -66,11 +68,10 @@ public class QryBDZPService {
                 .getPn()), Integer.parseInt(qryParam.getRn()));
         try {
             result = httpClentBDZP.doGet(qryParam);
-            //result = httpClentBDZP.doPost(qryParam);
-            
+            // result = httpClentBDZP.doPost(qryParam);
 
             JobInfo[] jobAry = parser(result, pageResult);
-            if (null == jobAry||jobAry.length==0) {
+            if (null == jobAry || jobAry.length == 0) {
                 logger.error("本次数据查询不到，解析结果为空。");
                 return pageResult;
             }
@@ -82,6 +83,9 @@ public class QryBDZPService {
             for (int i = 0; i < jobAry.length; i++) {
                 SjJobPO jobPO = converToJobPO(jobAry[i]);
                 jobPO.setJobId(jobIdAry[i]);
+                jobPO.setState(FrameWorkConstants.STATUS_EFF);
+                jobPO.setCreateDate(new Date());
+                jobPO.setTaskId(-1);
                 poList.add(jobPO);
             }
             pageResult.setResultList(poList);
@@ -171,7 +175,42 @@ public class QryBDZPService {
         // jobPO.setSalaryMin(0);
         // }
 
-        // 工作经验拆分
+        // 工作经验
+        {
+            if (null == jobInfo.getExperience())
+                jobPO.setExp("");
+            StringBuffer strb = new StringBuffer();
+            for (String tmp : jobInfo.getExperience()) {
+                strb.append(tmp).append(",");
+            }
+            strb.deleteCharAt(strb.length() - 1);
+            jobPO.setExp(strb.toString());
+        }
+
+        // 公司规模
+        {
+            if (null == jobInfo.getSize())
+                jobPO.setCompScale("");
+            StringBuffer strb = new StringBuffer();
+            for (String tmp : jobInfo.getSize()) {
+                strb.append(tmp).append(",");
+            }
+            strb.deleteCharAt(strb.length() - 1);
+            jobPO.setCompScale(strb.toString());
+        }
+
+        // 公司性质
+        {
+            if (null == jobInfo.getEmployertype())
+                jobPO.setCompType("");
+            StringBuffer strb = new StringBuffer();
+            for (String tmp : jobInfo.getEmployertype()) {
+                strb.append(tmp).append(",");
+            }
+            strb.deleteCharAt(strb.length() - 1);
+            jobPO.setCompType(strb.toString());
+        }
+
         return jobPO;
     }
 

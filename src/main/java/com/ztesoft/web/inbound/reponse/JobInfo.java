@@ -33,26 +33,26 @@ public class JobInfo extends AbstractDto {
     @JsonProperty("companydescription")
     private String compDesc;
     @JsonProperty("email")
-    private String compEmail;
+    private String compEmail;//公司邮箱
     @JsonProperty("employertype")
-    private String compType;
+    private String[] employertype;//公司性质
     @JsonProperty("size")
-    private String compScale;
+    private String[] size;//公司规模
     @JsonProperty("salary")
     private String salaryRange;
     
     
     @JsonProperty("province")
-    private String  province;
+    private String  province;//省份
     @JsonProperty("city")
-    private String  city;
+    private String  city;//城市
     @JsonProperty("district")
     private String  district;
     @JsonProperty("location")
     private String  location;
     
     @JsonProperty("description")
-    private String  jobDesc;
+    private String  jobDesc;//岗位描述
     @JsonProperty("type")
     private String  jobType;//岗位类型：全职等
     @JsonProperty("education")
@@ -62,7 +62,7 @@ public class JobInfo extends AbstractDto {
     @JsonProperty("number")
     private String  number;
     @JsonProperty("experience")
-    private String  experience;
+    private String[]  experience;
     @JsonProperty("jobfirstclass")
     private String  jobFirstClass;
     @JsonProperty("jobsecondclass")
@@ -180,28 +180,28 @@ public class JobInfo extends AbstractDto {
         this.compEmail = compEmail;
     }
     /**
-     * @return the compType
+     * @return the employertype
      */
-    public String getCompType() {
-        return compType;
+    public String[] getEmployertype() {
+        return employertype;
     }
     /**
-     * @param compType the compType to set
+     * @param employertype the employertype to set
      */
-    public void setCompType(String compType) {
-        this.compType = compType;
+    public void setEmployertype(String[] employertype) {
+        this.employertype = employertype;
     }
     /**
-     * @return the compScale
+     * @return the size
      */
-    public String getCompScale() {
-        return compScale;
+    public String[] getSize() {
+        return size;
     }
     /**
-     * @param compScale the compScale to set
+     * @param size the size to set
      */
-    public void setCompScale(String compScale) {
-        this.compScale = compScale;
+    public void setSize(String[] size) {
+        this.size = size;
     }
     /**
      * @return the salaryRange
@@ -326,13 +326,13 @@ public class JobInfo extends AbstractDto {
     /**
      * @return the experience
      */
-    public String getExperience() {
+    public String[] getExperience() {
         return experience;
     }
     /**
      * @param experience the experience to set
      */
-    public void setExperience(String experience) {
+    public void setExperience(String[] experience) {
         this.experience = experience;
     }
     /**

@@ -14,7 +14,7 @@ public class SjJobPO extends AbstractDto{
 	private String  compDesc;
 	private String  compEmail;
 	private String  compType;
-	private String  compScale;//公司规模
+	private String  compScale;
 	private Integer  compScaleMin;
 	private Integer  compScaleMax;
 	private String  salaryRange;
@@ -29,7 +29,7 @@ public class SjJobPO extends AbstractDto{
 	private String  education;
 	private String  sex;
 	private String  number;
-	private String  experience;
+	private String  exp;
 	private Integer  expMin;
 	private Integer  expMax;
 	private String  jobFirstClass;
@@ -48,6 +48,10 @@ public class SjJobPO extends AbstractDto{
 	private Long  dts;
 	private String  idts;
 	private Long  ts;
+	private String  state;
+	private Integer  sortNum;
+	private Integer  taskId;
+	private Date  createDate;
     public Integer getJobId() {
         return jobId;
     }
@@ -232,11 +236,11 @@ public class SjJobPO extends AbstractDto{
     }
     
     
-    public String getExperience() {
-        return StringUtils.isBlank(experience) ? experience : experience.trim();
+    public String getExp() {
+        return StringUtils.isBlank(exp) ? exp : exp.trim();
     }
-    public void setExperience(String experience) {
-        this.experience = experience;
+    public void setExp(String exp) {
+        this.exp = exp;
     }
     
     
@@ -381,6 +385,38 @@ public class SjJobPO extends AbstractDto{
     }
     public void setTs(Long ts) {
         this.ts = ts;
+    }
+
+    
+    public String getState() {
+        return StringUtils.isBlank(state) ? state : state.trim();
+    }
+    public void setState(String state) {
+        this.state = state;
+    }
+    
+    
+    public Integer getSortNum() {
+        return sortNum;
+    }
+    public void setSortNum(Integer sortNum) {
+        this.sortNum = sortNum;
+    }
+
+    
+    public Integer getTaskId() {
+        return taskId;
+    }
+    public void setTaskId(Integer taskId) {
+        this.taskId = taskId;
+    }
+
+    
+    public Date getCreateDate() {
+        return createDate;
+    }
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     

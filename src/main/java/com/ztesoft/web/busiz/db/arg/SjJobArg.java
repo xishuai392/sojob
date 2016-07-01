@@ -2246,93 +2246,93 @@ public class SjJobArg {
             addCriterion("number not between ", value1, value2, "number");
             return (SjJobCriteria) this;
         }
-        public SjJobCriteria andExperienceIsNull() {
-            addCriterion("experience is null");
+        public SjJobCriteria andExpIsNull() {
+            addCriterion("exp is null");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceIsNotNull() {
-            addCriterion("experience is not null");
+        public SjJobCriteria andExpIsNotNull() {
+            addCriterion("exp is not null");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceEqualTo(String value) {
-            addCriterion("experience =", value, "experience");
+        public SjJobCriteria andExpEqualTo(String value) {
+            addCriterion("exp =", value, "exp");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceNotEqualTo(String value) {
-            addCriterion("experience <>", value, "experience");
+        public SjJobCriteria andExpNotEqualTo(String value) {
+            addCriterion("exp <>", value, "exp");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceGreaterThan(String value) {
-            addCriterion("experience >", value, "experience");
+        public SjJobCriteria andExpGreaterThan(String value) {
+            addCriterion("exp >", value, "exp");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceGreaterThanOrEqualTo(String value) {
-            addCriterion("experience >=", value, "experience");
+        public SjJobCriteria andExpGreaterThanOrEqualTo(String value) {
+            addCriterion("exp >=", value, "exp");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceLessThan(String value) {
-            addCriterion("experience <", value, "experience");
+        public SjJobCriteria andExpLessThan(String value) {
+            addCriterion("exp <", value, "exp");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceLessThanOrEqualTo(String value) {
-            addCriterion("experience <=", value, "experience");
+        public SjJobCriteria andExpLessThanOrEqualTo(String value) {
+            addCriterion("exp <=", value, "exp");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceLike(String value) {
-            addCriterion("experience like ", value, "experience", 1);
+        public SjJobCriteria andExpLike(String value) {
+            addCriterion("exp like ", value, "exp", 1);
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceNotLike(String value) {
-            addCriterion("experience  not like ", value, "experience", 1);
+        public SjJobCriteria andExpNotLike(String value) {
+            addCriterion("exp  not like ", value, "exp", 1);
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceLeftLike(String value) {
-            addCriterion("experience like ", value, "experience", 0);
+        public SjJobCriteria andExpLeftLike(String value) {
+            addCriterion("exp like ", value, "exp", 0);
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceNotLeftLike(String value) {
-            addCriterion("experience  not like ", value, "experience", 0);
+        public SjJobCriteria andExpNotLeftLike(String value) {
+            addCriterion("exp  not like ", value, "exp", 0);
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceRightLike(String value) {
-            addCriterion("experience like ", value, "experience", 2);
+        public SjJobCriteria andExpRightLike(String value) {
+            addCriterion("exp like ", value, "exp", 2);
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceNotRightLike(String value) {
-            addCriterion("experience  not like ", value, "experience", 2);
+        public SjJobCriteria andExpNotRightLike(String value) {
+            addCriterion("exp  not like ", value, "exp", 2);
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceIn(List<String> values) {
-            addCriterion("experience  in ", values, "experience");
+        public SjJobCriteria andExpIn(List<String> values) {
+            addCriterion("exp  in ", values, "exp");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceNotIn(List<String> values) {
-            addCriterion("experience not in ", values, "experience");
+        public SjJobCriteria andExpNotIn(List<String> values) {
+            addCriterion("exp not in ", values, "exp");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceBetween(String value1, String value2) {
-            addCriterion("experience between ", value1, value2, "experience");
+        public SjJobCriteria andExpBetween(String value1, String value2) {
+            addCriterion("exp between ", value1, value2, "exp");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andExperienceNotBetween(String value1, String value2) {
-            addCriterion("experience not between ", value1, value2, "experience");
+        public SjJobCriteria andExpNotBetween(String value1, String value2) {
+            addCriterion("exp not between ", value1, value2, "exp");
             return (SjJobCriteria) this;
         }
         public SjJobCriteria andExpMinIsNull() {
@@ -3935,6 +3935,362 @@ public class SjJobArg {
 
         public SjJobCriteria andTsNotBetween(Long value1, Long value2) {
             addCriterion("ts not between ", value1, value2, "ts");
+            return (SjJobCriteria) this;
+        }
+        public SjJobCriteria andStateIsNull() {
+            addCriterion("state is null");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateIsNotNull() {
+            addCriterion("state is not null");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateEqualTo(String value) {
+            addCriterion("state =", value, "state");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateNotEqualTo(String value) {
+            addCriterion("state <>", value, "state");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateGreaterThan(String value) {
+            addCriterion("state >", value, "state");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateGreaterThanOrEqualTo(String value) {
+            addCriterion("state >=", value, "state");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateLessThan(String value) {
+            addCriterion("state <", value, "state");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateLessThanOrEqualTo(String value) {
+            addCriterion("state <=", value, "state");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateLike(String value) {
+            addCriterion("state like ", value, "state", 1);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateNotLike(String value) {
+            addCriterion("state  not like ", value, "state", 1);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateLeftLike(String value) {
+            addCriterion("state like ", value, "state", 0);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateNotLeftLike(String value) {
+            addCriterion("state  not like ", value, "state", 0);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateRightLike(String value) {
+            addCriterion("state like ", value, "state", 2);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateNotRightLike(String value) {
+            addCriterion("state  not like ", value, "state", 2);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateIn(List<String> values) {
+            addCriterion("state  in ", values, "state");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateNotIn(List<String> values) {
+            addCriterion("state not in ", values, "state");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateBetween(String value1, String value2) {
+            addCriterion("state between ", value1, value2, "state");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andStateNotBetween(String value1, String value2) {
+            addCriterion("state not between ", value1, value2, "state");
+            return (SjJobCriteria) this;
+        }
+        public SjJobCriteria andSortNumIsNull() {
+            addCriterion("sort_num is null");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumIsNotNull() {
+            addCriterion("sort_num is not null");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumEqualTo(Integer value) {
+            addCriterion("sort_num =", value, "sort_num");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumNotEqualTo(Integer value) {
+            addCriterion("sort_num <>", value, "sort_num");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumGreaterThan(Integer value) {
+            addCriterion("sort_num >", value, "sort_num");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("sort_num >=", value, "sort_num");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumLessThan(Integer value) {
+            addCriterion("sort_num <", value, "sort_num");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumLessThanOrEqualTo(Integer value) {
+            addCriterion("sort_num <=", value, "sort_num");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumLike(Integer value) {
+            addCriterion("sort_num like ", value, "sort_num", 1);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumNotLike(Integer value) {
+            addCriterion("sort_num  not like ", value, "sort_num", 1);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumLeftLike(Integer value) {
+            addCriterion("sort_num like ", value, "sort_num", 0);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumNotLeftLike(Integer value) {
+            addCriterion("sort_num  not like ", value, "sort_num", 0);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumRightLike(Integer value) {
+            addCriterion("sort_num like ", value, "sort_num", 2);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumNotRightLike(Integer value) {
+            addCriterion("sort_num  not like ", value, "sort_num", 2);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumIn(List<Integer> values) {
+            addCriterion("sort_num  in ", values, "sort_num");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumNotIn(List<Integer> values) {
+            addCriterion("sort_num not in ", values, "sort_num");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumBetween(Integer value1, Integer value2) {
+            addCriterion("sort_num between ", value1, value2, "sort_num");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andSortNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("sort_num not between ", value1, value2, "sort_num");
+            return (SjJobCriteria) this;
+        }
+        public SjJobCriteria andTaskIdIsNull() {
+            addCriterion("task_id is null");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdIsNotNull() {
+            addCriterion("task_id is not null");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdEqualTo(Integer value) {
+            addCriterion("task_id =", value, "task_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdNotEqualTo(Integer value) {
+            addCriterion("task_id <>", value, "task_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdGreaterThan(Integer value) {
+            addCriterion("task_id >", value, "task_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("task_id >=", value, "task_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdLessThan(Integer value) {
+            addCriterion("task_id <", value, "task_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdLessThanOrEqualTo(Integer value) {
+            addCriterion("task_id <=", value, "task_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdLike(Integer value) {
+            addCriterion("task_id like ", value, "task_id", 1);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdNotLike(Integer value) {
+            addCriterion("task_id  not like ", value, "task_id", 1);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdLeftLike(Integer value) {
+            addCriterion("task_id like ", value, "task_id", 0);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdNotLeftLike(Integer value) {
+            addCriterion("task_id  not like ", value, "task_id", 0);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdRightLike(Integer value) {
+            addCriterion("task_id like ", value, "task_id", 2);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdNotRightLike(Integer value) {
+            addCriterion("task_id  not like ", value, "task_id", 2);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdIn(List<Integer> values) {
+            addCriterion("task_id  in ", values, "task_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdNotIn(List<Integer> values) {
+            addCriterion("task_id not in ", values, "task_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdBetween(Integer value1, Integer value2) {
+            addCriterion("task_id between ", value1, value2, "task_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andTaskIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("task_id not between ", value1, value2, "task_id");
+            return (SjJobCriteria) this;
+        }
+        public SjJobCriteria andCreateDateIsNull() {
+            addCriterion("create_date is null");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateIsNotNull() {
+            addCriterion("create_date is not null");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateEqualTo(Date value) {
+            addCriterion("create_date =", value, "create_date");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateNotEqualTo(Date value) {
+            addCriterion("create_date <>", value, "create_date");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateGreaterThan(Date value) {
+            addCriterion("create_date >", value, "create_date");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_date >=", value, "create_date");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateLessThan(Date value) {
+            addCriterion("create_date <", value, "create_date");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateLessThanOrEqualTo(Date value) {
+            addCriterion("create_date <=", value, "create_date");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateLike(Date value) {
+            addCriterion("create_date like ", value, "create_date", 1);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateNotLike(Date value) {
+            addCriterion("create_date  not like ", value, "create_date", 1);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateLeftLike(Date value) {
+            addCriterion("create_date like ", value, "create_date", 0);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateNotLeftLike(Date value) {
+            addCriterion("create_date  not like ", value, "create_date", 0);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateRightLike(Date value) {
+            addCriterion("create_date like ", value, "create_date", 2);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateNotRightLike(Date value) {
+            addCriterion("create_date  not like ", value, "create_date", 2);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateIn(List<Date> values) {
+            addCriterion("create_date  in ", values, "create_date");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateNotIn(List<Date> values) {
+            addCriterion("create_date not in ", values, "create_date");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateBetween(Date value1, Date value2) {
+            addCriterion("create_date between ", value1, value2, "create_date");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andCreateDateNotBetween(Date value1, Date value2) {
+            addCriterion("create_date not between ", value1, value2, "create_date");
             return (SjJobCriteria) this;
         }
 
