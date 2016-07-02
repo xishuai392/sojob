@@ -58,23 +58,6 @@
 		<url-pattern>*.json</url-pattern>
 	</servlet-mapping>
 	
-	<!-- crm-report报表集成  start 
-	<servlet>
-		<servlet-name>reportservlet</servlet-name>
-		<servlet-class>com.ztesoft.crm.report.ReportServlet</servlet-class>
-		<init-param>
-			<param-name>config</param-name>
-			<param-value>/WEB-INF/report_server.xml</param-value>
-		</init-param>
-		<load-on-startup>3</load-on-startup>
-	</servlet>
-
-
-	<servlet-mapping>
-		<servlet-name>reportservlet</servlet-name>
-		<url-pattern>/report/*</url-pattern>
-	</servlet-mapping>
-	<!-- crm-report报表集成  end -->
 	
 	<!-- 配置CXF -->
 	<servlet>
