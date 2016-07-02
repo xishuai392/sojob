@@ -166,7 +166,7 @@ public class CustomMappingExceptionResolver extends
             msg = MessageResourceUtils.getMessage(errCode);
         }
         String responseMsg = "{\"msg\":\"" + msg
-                + "\",\"success\":false,\"errCode\":\"" + errCode + "\"}";
+                + "\",\"success\":false,\"errCode\":\"" + errCode + "\",\"entity\":\"\"}";
 
         // Expose ModelAndView for chosen error view.
         String viewName = determineViewName(ex, request);

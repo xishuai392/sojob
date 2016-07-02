@@ -3,6 +3,7 @@
  */
 package com.ztesoft.web.inbound.reponse;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ztesoft.framework.dto.AbstractDto;
 
 /** 
@@ -18,13 +19,16 @@ import com.ztesoft.framework.dto.AbstractDto;
 
 public class JobInfoGroup extends AbstractDto {
     private String version;
+    @JsonProperty("status")
     private String status;
+    @JsonProperty("resNum")
     private String resNum;
     private String hilight;
+    @JsonProperty("dispNum")
     private String dispNum;
     private String listNum;
     private String page_type;
-    
+    @JsonProperty("disp_data")
     private JobInfo[] disp_data;
 
     /**

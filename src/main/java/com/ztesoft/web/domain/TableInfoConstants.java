@@ -20,4 +20,8 @@ public final class TableInfoConstants {
     
     /** 用户表AM_USER */
     public static final String AM_USER_PKFIELD = "USER_ID";
+    
+    public static final String SJ_JOB = "SJ_JOB";
+    
+    public static final String SJ_JOB_PKFIELD = "JOB_ID";
 }
