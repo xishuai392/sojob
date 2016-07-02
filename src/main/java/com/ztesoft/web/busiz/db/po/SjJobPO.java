@@ -9,7 +9,8 @@ public class SjJobPO extends AbstractDto{
 	private Integer  jobId;
 	private String  jobName;
 	private String  compName;
-	private String  compId;
+	private String  outCompId;
+	private Integer  compId;
 	private String  compAddr;
 	private String  compDesc;
 	private String  compEmail;
@@ -76,13 +77,21 @@ public class SjJobPO extends AbstractDto{
     }
     
     
-    public String getCompId() {
-        return StringUtils.isBlank(compId) ? compId : compId.trim();
+    public String getOutCompId() {
+        return StringUtils.isBlank(outCompId) ? outCompId : outCompId.trim();
     }
-    public void setCompId(String compId) {
-        this.compId = compId;
+    public void setOutCompId(String outCompId) {
+        this.outCompId = outCompId;
     }
     
+    
+    public Integer getCompId() {
+        return compId;
+    }
+    public void setCompId(Integer compId) {
+        this.compId = compId;
+    }
+
     
     public String getCompAddr() {
         return StringUtils.isBlank(compAddr) ? compAddr : compAddr.trim();

@@ -1,5 +1,7 @@
 package com.ztesoft.web.qryjob.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ztesoft.core.common.Page;
 import com.ztesoft.framework.exception.BaseAppException;
 import com.ztesoft.framework.log.ZTEsoftLogManager;
+import com.ztesoft.framework.util.FrameWorkConstants;
+import com.ztesoft.framework.util.JsonUtil;
 import com.ztesoft.web.busiz.db.po.SjJobPO;
 import com.ztesoft.web.busiz.db.po.UserBehavePO;
 import com.ztesoft.web.busiz.service.IUserBehaveService;
@@ -16,6 +20,7 @@ import com.ztesoft.web.inbound.conver.QryParamConver;
 import com.ztesoft.web.inbound.param.QryParamBDZP;
 import com.ztesoft.web.inbound.service.QryBDZPService;
 import com.ztesoft.web.qryjob.vo.QryJobParam;
+import com.ztesoft.web.qryjob.vo.ReponseResultWrap;
 
 /**
  * <Description>sjjob管理 <br>
@@ -53,23 +58,32 @@ public class QryJobController {
 
     @RequestMapping("byPage")
     @ResponseBody
-    public Page<SjJobPO> queryRecordByPage(QryJobParam qryJobParam,
-            Page<SjJobPO> qryPage, UserBehavePO userBehavePO)
-            throws BaseAppException {
+    public ReponseResultWrap<Page<SjJobPO>> queryRecordByPage(
+            QryJobParam qryJobParam, Page<SjJobPO> qryPage,
+            UserBehavePO userBehavePO) throws BaseAppException {
+        ReponseResultWrap<Page<SjJobPO>> resultWrap = new ReponseResultWrap<Page<SjJobPO>>();
         QryParamBDZP qryParamBDZP = QryParamConver.toBDZP(qryJobParam, qryPage);
         Page<SjJobPO> resultPage = qryBDZPService.saveByQury(qryParamBDZP);
         // 设置下起始记录
         resultPage.setStart(qryPage.getStart());
-
+        resultWrap.setEntity(resultPage);
         try {
             userBehavePO.setModule("QUERY_JOB");
+            userBehavePO.setReqUrl(JsonUtil.toJson(qryJobParam));
+            userBehavePO.setCreateDate(new Date());
+            userBehavePO.setState(FrameWorkConstants.STATUS_EFF);
+            //TODO 需要转换地理位置到城市
+            
             // 记录用户行为
             userBehaveService.add(userBehavePO);
         }
         catch (Exception e) {
             logger.error("记录用户行为时，发生异常", e);
         }
-        return resultPage;
+
+        // SjJobPO qryJobPO = new SjJobPO();
+
+        return resultWrap;
     }
 
 }

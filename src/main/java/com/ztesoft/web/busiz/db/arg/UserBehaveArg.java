@@ -555,6 +555,95 @@ public class UserBehaveArg {
             addCriterion("device_type not between ", value1, value2, "device_type");
             return (UserBehaveCriteria) this;
         }
+        public UserBehaveCriteria andDeviceVersionIsNull() {
+            addCriterion("device_version is null");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionIsNotNull() {
+            addCriterion("device_version is not null");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionEqualTo(String value) {
+            addCriterion("device_version =", value, "device_version");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionNotEqualTo(String value) {
+            addCriterion("device_version <>", value, "device_version");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionGreaterThan(String value) {
+            addCriterion("device_version >", value, "device_version");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionGreaterThanOrEqualTo(String value) {
+            addCriterion("device_version >=", value, "device_version");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionLessThan(String value) {
+            addCriterion("device_version <", value, "device_version");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionLessThanOrEqualTo(String value) {
+            addCriterion("device_version <=", value, "device_version");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionLike(String value) {
+            addCriterion("device_version like ", value, "device_version", 1);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionNotLike(String value) {
+            addCriterion("device_version  not like ", value, "device_version", 1);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionLeftLike(String value) {
+            addCriterion("device_version like ", value, "device_version", 0);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionNotLeftLike(String value) {
+            addCriterion("device_version  not like ", value, "device_version", 0);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionRightLike(String value) {
+            addCriterion("device_version like ", value, "device_version", 2);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionNotRightLike(String value) {
+            addCriterion("device_version  not like ", value, "device_version", 2);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionIn(List<String> values) {
+            addCriterion("device_version  in ", values, "device_version");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionNotIn(List<String> values) {
+            addCriterion("device_version not in ", values, "device_version");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionBetween(String value1, String value2) {
+            addCriterion("device_version between ", value1, value2, "device_version");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andDeviceVersionNotBetween(String value1, String value2) {
+            addCriterion("device_version not between ", value1, value2, "device_version");
+            return (UserBehaveCriteria) this;
+        }
         public UserBehaveCriteria andSysTypeIsNull() {
             addCriterion("sys_type is null");
             return (UserBehaveCriteria) this;
@@ -909,6 +998,273 @@ public class UserBehaveArg {
 
         public UserBehaveCriteria andUserPhoneNotBetween(String value1, String value2) {
             addCriterion("user_phone not between ", value1, value2, "user_phone");
+            return (UserBehaveCriteria) this;
+        }
+        public UserBehaveCriteria andGeolocationIsNull() {
+            addCriterion("geolocation is null");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationIsNotNull() {
+            addCriterion("geolocation is not null");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationEqualTo(String value) {
+            addCriterion("geolocation =", value, "geolocation");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationNotEqualTo(String value) {
+            addCriterion("geolocation <>", value, "geolocation");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationGreaterThan(String value) {
+            addCriterion("geolocation >", value, "geolocation");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationGreaterThanOrEqualTo(String value) {
+            addCriterion("geolocation >=", value, "geolocation");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationLessThan(String value) {
+            addCriterion("geolocation <", value, "geolocation");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationLessThanOrEqualTo(String value) {
+            addCriterion("geolocation <=", value, "geolocation");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationLike(String value) {
+            addCriterion("geolocation like ", value, "geolocation", 1);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationNotLike(String value) {
+            addCriterion("geolocation  not like ", value, "geolocation", 1);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationLeftLike(String value) {
+            addCriterion("geolocation like ", value, "geolocation", 0);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationNotLeftLike(String value) {
+            addCriterion("geolocation  not like ", value, "geolocation", 0);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationRightLike(String value) {
+            addCriterion("geolocation like ", value, "geolocation", 2);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationNotRightLike(String value) {
+            addCriterion("geolocation  not like ", value, "geolocation", 2);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationIn(List<String> values) {
+            addCriterion("geolocation  in ", values, "geolocation");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationNotIn(List<String> values) {
+            addCriterion("geolocation not in ", values, "geolocation");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationBetween(String value1, String value2) {
+            addCriterion("geolocation between ", value1, value2, "geolocation");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andGeolocationNotBetween(String value1, String value2) {
+            addCriterion("geolocation not between ", value1, value2, "geolocation");
+            return (UserBehaveCriteria) this;
+        }
+        public UserBehaveCriteria andCityIdIsNull() {
+            addCriterion("city_id is null");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdIsNotNull() {
+            addCriterion("city_id is not null");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdEqualTo(Integer value) {
+            addCriterion("city_id =", value, "city_id");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdNotEqualTo(Integer value) {
+            addCriterion("city_id <>", value, "city_id");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdGreaterThan(Integer value) {
+            addCriterion("city_id >", value, "city_id");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("city_id >=", value, "city_id");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdLessThan(Integer value) {
+            addCriterion("city_id <", value, "city_id");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdLessThanOrEqualTo(Integer value) {
+            addCriterion("city_id <=", value, "city_id");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdLike(Integer value) {
+            addCriterion("city_id like ", value, "city_id", 1);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdNotLike(Integer value) {
+            addCriterion("city_id  not like ", value, "city_id", 1);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdLeftLike(Integer value) {
+            addCriterion("city_id like ", value, "city_id", 0);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdNotLeftLike(Integer value) {
+            addCriterion("city_id  not like ", value, "city_id", 0);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdRightLike(Integer value) {
+            addCriterion("city_id like ", value, "city_id", 2);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdNotRightLike(Integer value) {
+            addCriterion("city_id  not like ", value, "city_id", 2);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdIn(List<Integer> values) {
+            addCriterion("city_id  in ", values, "city_id");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdNotIn(List<Integer> values) {
+            addCriterion("city_id not in ", values, "city_id");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdBetween(Integer value1, Integer value2) {
+            addCriterion("city_id between ", value1, value2, "city_id");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("city_id not between ", value1, value2, "city_id");
+            return (UserBehaveCriteria) this;
+        }
+        public UserBehaveCriteria andCityNameIsNull() {
+            addCriterion("city_name is null");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameIsNotNull() {
+            addCriterion("city_name is not null");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameEqualTo(String value) {
+            addCriterion("city_name =", value, "city_name");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameNotEqualTo(String value) {
+            addCriterion("city_name <>", value, "city_name");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameGreaterThan(String value) {
+            addCriterion("city_name >", value, "city_name");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameGreaterThanOrEqualTo(String value) {
+            addCriterion("city_name >=", value, "city_name");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameLessThan(String value) {
+            addCriterion("city_name <", value, "city_name");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameLessThanOrEqualTo(String value) {
+            addCriterion("city_name <=", value, "city_name");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameLike(String value) {
+            addCriterion("city_name like ", value, "city_name", 1);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameNotLike(String value) {
+            addCriterion("city_name  not like ", value, "city_name", 1);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameLeftLike(String value) {
+            addCriterion("city_name like ", value, "city_name", 0);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameNotLeftLike(String value) {
+            addCriterion("city_name  not like ", value, "city_name", 0);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameRightLike(String value) {
+            addCriterion("city_name like ", value, "city_name", 2);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameNotRightLike(String value) {
+            addCriterion("city_name  not like ", value, "city_name", 2);
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameIn(List<String> values) {
+            addCriterion("city_name  in ", values, "city_name");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameNotIn(List<String> values) {
+            addCriterion("city_name not in ", values, "city_name");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameBetween(String value1, String value2) {
+            addCriterion("city_name between ", value1, value2, "city_name");
+            return (UserBehaveCriteria) this;
+        }
+
+        public UserBehaveCriteria andCityNameNotBetween(String value1, String value2) {
+            addCriterion("city_name not between ", value1, value2, "city_name");
             return (UserBehaveCriteria) this;
         }
         public UserBehaveCriteria andModuleIsNull() {

@@ -466,6 +466,95 @@ public class SjJobArg {
             addCriterion("comp_name not between ", value1, value2, "comp_name");
             return (SjJobCriteria) this;
         }
+        public SjJobCriteria andOutCompIdIsNull() {
+            addCriterion("out_comp_id is null");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdIsNotNull() {
+            addCriterion("out_comp_id is not null");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdEqualTo(String value) {
+            addCriterion("out_comp_id =", value, "out_comp_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdNotEqualTo(String value) {
+            addCriterion("out_comp_id <>", value, "out_comp_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdGreaterThan(String value) {
+            addCriterion("out_comp_id >", value, "out_comp_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdGreaterThanOrEqualTo(String value) {
+            addCriterion("out_comp_id >=", value, "out_comp_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdLessThan(String value) {
+            addCriterion("out_comp_id <", value, "out_comp_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdLessThanOrEqualTo(String value) {
+            addCriterion("out_comp_id <=", value, "out_comp_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdLike(String value) {
+            addCriterion("out_comp_id like ", value, "out_comp_id", 1);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdNotLike(String value) {
+            addCriterion("out_comp_id  not like ", value, "out_comp_id", 1);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdLeftLike(String value) {
+            addCriterion("out_comp_id like ", value, "out_comp_id", 0);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdNotLeftLike(String value) {
+            addCriterion("out_comp_id  not like ", value, "out_comp_id", 0);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdRightLike(String value) {
+            addCriterion("out_comp_id like ", value, "out_comp_id", 2);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdNotRightLike(String value) {
+            addCriterion("out_comp_id  not like ", value, "out_comp_id", 2);
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdIn(List<String> values) {
+            addCriterion("out_comp_id  in ", values, "out_comp_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdNotIn(List<String> values) {
+            addCriterion("out_comp_id not in ", values, "out_comp_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdBetween(String value1, String value2) {
+            addCriterion("out_comp_id between ", value1, value2, "out_comp_id");
+            return (SjJobCriteria) this;
+        }
+
+        public SjJobCriteria andOutCompIdNotBetween(String value1, String value2) {
+            addCriterion("out_comp_id not between ", value1, value2, "out_comp_id");
+            return (SjJobCriteria) this;
+        }
         public SjJobCriteria andCompIdIsNull() {
             addCriterion("comp_id is null");
             return (SjJobCriteria) this;
@@ -476,82 +565,82 @@ public class SjJobArg {
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdEqualTo(String value) {
+        public SjJobCriteria andCompIdEqualTo(Integer value) {
             addCriterion("comp_id =", value, "comp_id");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdNotEqualTo(String value) {
+        public SjJobCriteria andCompIdNotEqualTo(Integer value) {
             addCriterion("comp_id <>", value, "comp_id");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdGreaterThan(String value) {
+        public SjJobCriteria andCompIdGreaterThan(Integer value) {
             addCriterion("comp_id >", value, "comp_id");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdGreaterThanOrEqualTo(String value) {
+        public SjJobCriteria andCompIdGreaterThanOrEqualTo(Integer value) {
             addCriterion("comp_id >=", value, "comp_id");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdLessThan(String value) {
+        public SjJobCriteria andCompIdLessThan(Integer value) {
             addCriterion("comp_id <", value, "comp_id");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdLessThanOrEqualTo(String value) {
+        public SjJobCriteria andCompIdLessThanOrEqualTo(Integer value) {
             addCriterion("comp_id <=", value, "comp_id");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdLike(String value) {
+        public SjJobCriteria andCompIdLike(Integer value) {
             addCriterion("comp_id like ", value, "comp_id", 1);
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdNotLike(String value) {
+        public SjJobCriteria andCompIdNotLike(Integer value) {
             addCriterion("comp_id  not like ", value, "comp_id", 1);
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdLeftLike(String value) {
+        public SjJobCriteria andCompIdLeftLike(Integer value) {
             addCriterion("comp_id like ", value, "comp_id", 0);
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdNotLeftLike(String value) {
+        public SjJobCriteria andCompIdNotLeftLike(Integer value) {
             addCriterion("comp_id  not like ", value, "comp_id", 0);
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdRightLike(String value) {
+        public SjJobCriteria andCompIdRightLike(Integer value) {
             addCriterion("comp_id like ", value, "comp_id", 2);
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdNotRightLike(String value) {
+        public SjJobCriteria andCompIdNotRightLike(Integer value) {
             addCriterion("comp_id  not like ", value, "comp_id", 2);
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdIn(List<String> values) {
+        public SjJobCriteria andCompIdIn(List<Integer> values) {
             addCriterion("comp_id  in ", values, "comp_id");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdNotIn(List<String> values) {
+        public SjJobCriteria andCompIdNotIn(List<Integer> values) {
             addCriterion("comp_id not in ", values, "comp_id");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdBetween(String value1, String value2) {
+        public SjJobCriteria andCompIdBetween(Integer value1, Integer value2) {
             addCriterion("comp_id between ", value1, value2, "comp_id");
             return (SjJobCriteria) this;
         }
 
-        public SjJobCriteria andCompIdNotBetween(String value1, String value2) {
+        public SjJobCriteria andCompIdNotBetween(Integer value1, Integer value2) {
             addCriterion("comp_id not between ", value1, value2, "comp_id");
             return (SjJobCriteria) this;
         }

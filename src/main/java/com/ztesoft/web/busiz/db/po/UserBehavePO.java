@@ -10,10 +10,14 @@ public class UserBehavePO extends AbstractDto{
 	private Integer  userId;
 	private String  deviceCode;
 	private String  deviceType;
+	private String  deviceVersion;
 	private Integer  sysType;
 	private String  sysVersion;
 	private String  appVersion;
 	private String  userPhone;
+	private String  geolocation;
+	private Integer  cityId;
+	private String  cityName;
 	private String  module;
 	private String  reqUrl;
 	private Date  createDate;
@@ -50,6 +54,14 @@ public class UserBehavePO extends AbstractDto{
     }
     
     
+    public String getDeviceVersion() {
+        return StringUtils.isBlank(deviceVersion) ? deviceVersion : deviceVersion.trim();
+    }
+    public void setDeviceVersion(String deviceVersion) {
+        this.deviceVersion = deviceVersion;
+    }
+    
+    
     public Integer getSysType() {
         return sysType;
     }
@@ -79,6 +91,30 @@ public class UserBehavePO extends AbstractDto{
     }
     public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
+    }
+    
+    
+    public String getGeolocation() {
+        return StringUtils.isBlank(geolocation) ? geolocation : geolocation.trim();
+    }
+    public void setGeolocation(String geolocation) {
+        this.geolocation = geolocation;
+    }
+    
+    
+    public Integer getCityId() {
+        return cityId;
+    }
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
+    }
+
+    
+    public String getCityName() {
+        return StringUtils.isBlank(cityName) ? cityName : cityName.trim();
+    }
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
     
     

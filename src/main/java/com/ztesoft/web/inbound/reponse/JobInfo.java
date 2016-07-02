@@ -27,7 +27,7 @@ public class JobInfo extends AbstractDto {
     @JsonProperty("officialname")
     private String compName;
     @JsonProperty("companyID")
-    private String compId;
+    private String outCompId;//外部公司ID，来源于百度的，可能为空，需要转换成内部ID compId
     @JsonProperty("companyaddress")
     private String compAddr;
     @JsonProperty("companydescription")
@@ -131,17 +131,18 @@ public class JobInfo extends AbstractDto {
     public void setCompName(String compName) {
         this.compName = compName;
     }
+    
     /**
-     * @return the compId
+     * @return the outCompId
      */
-    public String getCompId() {
-        return compId;
+    public String getOutCompId() {
+        return outCompId;
     }
     /**
-     * @param compId the compId to set
+     * @param outCompId the outCompId to set
      */
-    public void setCompId(String compId) {
-        this.compId = compId;
+    public void setOutCompId(String outCompId) {
+        this.outCompId = outCompId;
     }
     /**
      * @return the compAddr
