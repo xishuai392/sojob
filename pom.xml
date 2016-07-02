@@ -29,11 +29,7 @@
 		<spring-data-redis.version>1.7.0.RELEASE</spring-data-redis.version>
 		<commons-pool2.version>2.4.2</commons-pool2.version>
 		<cxf.version>2.7.14</cxf.version>
-		<jasperreports.path>D:\\openSource\\jasperreportJAR\\jasperreports-6.2.0.jar</jasperreports.path>
-		<jasperreports-fonts.path>D:\\openSource\\jasperreportJAR\\jasperreports-fonts-6.2.0.jar</jasperreports-fonts.path>
-		<jasperreports-functions.path>D:\\openSource\\jasperreportJAR\\jasperreports-functions-6.2.0.jar</jasperreports-functions.path>
-		<iTextAsian.path>D:\\openSource\\jasperreportJAR\\iTextAsian-1.0.jar</iTextAsian.path>
-		<itext.path>D:\\openSource\\jasperreportJAR\\itext-2.1.7.js4.jar</itext.path>
+
 		
 	</properties>
 
@@ -500,67 +496,11 @@
 			<optional>true</optional> 
 		</dependency> 
 
-		<!--  
-		<dependency>
-			<groupId>com.ztesoft</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>3.10.1</version>
-			<scope>system</scope>
-			<systemPath>D:\\openSource\\jasperreportJAR\\poi-ooxml-3.10.1.jar</systemPath>
-		</dependency>
-		-->
+		
 
 		<!-- crm-report报表集成 end -->
 
-		<!--jasperreports 报表工具 start -->
-		<!-- maven 私服 <dependency> <groupId>net.sf.jasperreports</groupId> <artifactId>jasperreports</artifactId> 
-			<version>6.2.0</version> </dependency> -->
-
-		<!-- maven <dependency> <groupId>net.sf.jasperreports</groupId> <artifactId>jasperreports-fonts</artifactId> 
-			<version>6.0.0</version> </dependency> -->
-
-		<!-- 
-		<dependency>
-			<groupId>com.ztesoft.jasperreports</groupId>
-			<artifactId>jasperreports</artifactId>
-			<version>6.2.0</version>
-			<scope>system</scope>
-			<systemPath>${jasperreports.path}</systemPath>
-		</dependency>
-
-
-		<dependency>
-			<groupId>com.ztesoft</groupId>
-			<artifactId>jasperreports-fonts</artifactId>
-			<version>6.2.0</version>
-			<scope>system</scope>
-			<systemPath>${jasperreports-fonts.path}</systemPath>
-		</dependency>
-
-		<dependency>
-			<groupId>com.ztesoft</groupId>
-			<artifactId>jasperreports-functions</artifactId>
-			<version>6.2.0</version>
-			<scope>system</scope>
-			<systemPath>${jasperreports-functions.path}</systemPath>
-		</dependency>
-
-		<dependency>
-			<groupId>com.ztesoft</groupId>
-			<artifactId>iTextAsian</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${iTextAsian.path}</systemPath>
-		</dependency>
-
-		<dependency>
-			<groupId>com.ztesoft</groupId>
-			<artifactId>itext</artifactId>
-			<version>itext-2.1.7.js4</version>
-			<scope>system</scope>
-			<systemPath>${itext.path}</systemPath>
-		</dependency>
-		-->
+		
 
 		<dependency>
 			<groupId>joda-time</groupId>
