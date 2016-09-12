@@ -452,7 +452,7 @@
 			<classifier>tests</classifier>
 		</dependency>
 
-		<!-- crm-report报表集成 start
+	
 
 
 		<!-- 此处不能使用2.9.1版本，使用2.9.1生成png会失败 -->
@@ -491,7 +491,7 @@
 
 		
 
-		<!-- crm-report报表集成 end -->
+
 
 		
 
